@@ -1,0 +1,7 @@
+.container {
+    padding: 2rem 10rem 2rem 10rem;
+}
+.searchbar, .searchbar2 {
+    height: 2.4rem;
+    width: 20rem;
+}

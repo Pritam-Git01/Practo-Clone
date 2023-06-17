@@ -1,13 +1,15 @@
 
 import './App.css';
 
-import Navbar from './components/molecules/Navbar/navbar';
+
+import Home from './components/pages/Home/Home';
 
 
 function App() {
   return (
    <div className='App'>
-    <Navbar/>
+    <Home/>
+    
     
       
       </div>

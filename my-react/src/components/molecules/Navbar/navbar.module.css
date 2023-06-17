@@ -1,7 +1,8 @@
 .nav_container {
   height: 10vh;
   width: 100vw;
-  position: fixed;
+  position: sticky;
+ 
 border-bottom: 2px solid rgb(224, 224, 246);
 }
 .nav_wraper {
@@ -39,12 +40,13 @@ border-bottom: 2px solid rgb(224, 224, 246);
   gap: 2em;
   list-style-type: none;
   color: #2d2d32;
-  cursor: pointer;
+  
 }
 .nav_items_second ul li {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .nav_items_second .btn_1 {
   margin-left: 1.8em;
