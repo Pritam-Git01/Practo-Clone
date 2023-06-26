@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./symtoms.module.css";
-import Text from '../../atoms/ScroolText/Text';
+import Text from '../../atoms/ScrollText/Text';
 import Scrollbar from '../../molecules/ScrollBar/scrollbar';
 const Symtoms = () => {
   return (
