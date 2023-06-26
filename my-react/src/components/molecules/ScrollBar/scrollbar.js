@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./scrollbar.module.css"
 import Cards from '../../atoms/ScrollCards/card';
 
-const Scroolbar = () => {
+const Scrollbar = () => {
   return (
     <div className={styles.scroll_container}>
         <Cards/>
@@ -16,4 +16,4 @@ const Scroolbar = () => {
   )
 }
 
-export default Scroolbar
+export default Scrollbar;
