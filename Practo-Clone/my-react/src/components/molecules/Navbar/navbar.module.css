@@ -1,0 +1,85 @@
+.nav_container {
+  height: 10vh;
+  width: 100vw;
+  position: sticky;
+ 
+border-bottom: 2px solid rgb(224, 224, 246);
+}
+.nav_wraper {
+  display: flex;
+}
+.logo {
+  margin: 1.4em 4.2em 1em 5em;
+}
+.nav_items_first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10.4em;
+}
+.nav_items_first ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  list-style-type: none;
+}
+.nav_items_first ul li {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d2d32;
+  cursor: pointer;
+}
+.nav_items_second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav_items_second ul {
+  display: flex;
+  gap: 2em;
+  list-style-type: none;
+  color: #2d2d32;
+  
+}
+.nav_items_second ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.nav_items_second .btn_1 {
+  margin-left: 1.8em;
+}
+.icon {
+  font-size: 1.6rem;
+  display: inline-block;
+  margin-left: 0.6rem;
+  margin-top: 0.55rem;
+  color: #2d2d32;
+}
+.new {
+  font-size: 9.4px;
+  display: inline-block;
+  height: 0.9rem;
+  width: 2rem;
+  margin-right: 0.6rem;
+  background-color: rgb(9, 9, 128);
+  border-radius: 0.8rem;
+  color: white;
+  padding-left: 0.29rem;
+}
+.btn {
+  height: 2rem;
+  width: 6.8rem;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 13px;
+  color: #787887;
+  border-radius: 4px;
+  border: 1px solid #d3d3d3;
+}
+.btn:hover {
+  color: rgb(63, 211, 196);
+  border-color: rgb(63, 211, 196);
+}
