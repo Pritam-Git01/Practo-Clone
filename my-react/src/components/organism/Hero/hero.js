@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./hero.module.css";
 
-import HeroImage from '../../atoms/Logo/HeroImage/image'
+import HeroImage from '../../atoms/HeroImage/image'
 import CardList from '../../molecules/CardList/CardList';
 
 const Hero = () => {

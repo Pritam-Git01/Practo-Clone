@@ -2,8 +2,9 @@ import React from 'react';
 import styles from "./Home.module.css"
 import Navbar from '../../molecules/Navbar/navbar';
 import Hero from '../../organism/Hero/hero';
-import Symtoms from '../../organism/Consult_Video/symtoms';
-import Appointment from '../../organism/Consult_Clinic/appointment';
+import Scrollbar from '../../molecules/ScrollBar/scrollbar';
+import ScrollCards from '../../molecules/ScrollCards/ScrollCards';
+import Blogs from '../../molecules/Blogs/blogs';
 
 
 const Home = () => {
@@ -11,9 +12,9 @@ const Home = () => {
     <div className={styles.home_container}>
     <Navbar/>
     <Hero/>
-    <Symtoms/>
-    <Appointment/>
-    
+    <Scrollbar/>
+    <ScrollCards/>
+    <Blogs/>
    
     </div>
   )

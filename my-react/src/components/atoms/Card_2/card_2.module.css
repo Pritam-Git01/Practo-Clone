@@ -1,23 +1,25 @@
 .Cards_wraper {
-    height: 28vh;
-    width: 12.2vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    border: 2px solid white;
-    padding: 0.2rem 2rem;
+  height: 28vh;
+  width: 12.2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  border: 2px solid white;
+  padding: 0.2rem 2rem;
+}
+
+.text{
+    font-weight: 600;
 }
 
 .btn {
-
-    font-size: 12px;
-    line-height: 1.25;
-    font-weight: 700;
-    border: none;
-    text-transform: uppercase;
-
-    background: none;
-    color: #14bef0;
-    
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  background: none;
+  color: #14bef0;
 }

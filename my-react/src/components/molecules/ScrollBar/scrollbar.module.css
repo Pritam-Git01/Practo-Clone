@@ -1,3 +1,9 @@
+.container {
+    padding: 2rem 10rem 2rem 10rem;
+
+}
+
+
 .scroll_container {
     margin-top: 2rem;
     height: 32vh;

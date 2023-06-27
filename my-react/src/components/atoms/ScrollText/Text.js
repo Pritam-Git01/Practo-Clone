@@ -8,9 +8,12 @@ const Text = () => {
         <div className={styles.text_wraper}>
             <h2>
             Consult top doctors online for any health concern
-
+           
             </h2>
-            <p>Private online consultations with verified doctors in all specialists</p>
+            <p>
+              Private online consultations with verified doctors in all specialists
+              
+              </p>
         </div>
         <div className={styles.btn}>
             <button className={styles.spcl_btn}>View all Specialist</button>

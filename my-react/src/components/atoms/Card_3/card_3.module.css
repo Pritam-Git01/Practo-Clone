@@ -1,0 +1,24 @@
+.wraper {
+    margin-top: 1.6rem;
+    height: 40vh;
+    width: 19vw;
+    cursor: pointer;
+}
+.wraper img {
+    border-radius: 0.4rem;
+    height: 30vh;
+    width: 18.9vw;
+}
+.wraper h4 {
+    margin-top: 0.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #414146;
+}
+.wraper h4:hover {
+    color: #14bef0;
+}
+.wraper p {
+    font-size: 14px;
+    color: rgb(28, 25, 25);
+}

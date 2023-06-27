@@ -1,0 +1,17 @@
+.wraper {
+    padding: 2rem 10rem 2rem 10rem;
+}
+
+
+.container {
+    height: 51.9vh;
+    width: 80vw;
+    display: flex;
+    gap: 1.5rem;
+    overflow: scroll;
+   border-bottom: 1px solid rgb(204, 200, 200);
+
+}
+.container::-webkit-scrollbar {
+    display: none;
+}

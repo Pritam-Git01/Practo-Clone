@@ -1,0 +1,21 @@
+.container {
+    height: 40vh;
+    width: 20vw;
+    cursor: pointer;
+    color: rgb(69, 67, 67);
+}
+.container img {
+    height: 26vh;
+    width: 20vw;
+    border-radius: 0.4rem;
+}
+.text1 {
+    margin-top: 0.5rem;
+    font-size: 12px;
+    font-weight: 600;
+    color: #358588;
+}
+.heading{
+    margin: 0.5rem 0;
+    font-weight: 550;
+}

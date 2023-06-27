@@ -3,4 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+:root {
+  --bl-color1: #b290fc;
+  --bl-color2: #ececec;
+  --bl-color3: #f1fa8c;
+  --bl-color4: #ff79c6;
+  --bl-color5: #ffb86c;
+  --bl-color6: #f99393;
+  --bl-color7: #ececec;
+  --bl-color-faded: #605C7B;
+}

@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import styles from "./card_3.module.css";
+import img from "../../assets/Images/sp-dentist@2x.jpg"
 
-const card_3 = () => {
+const Card = () => {
   return (
-    <div>card_3</div>
+    <div className={styles.wraper}>
+         <img src={img} alt='dentist'/> 
+        <h4>Dentist</h4>
+        <p>Teething Trouble? Schedule a dental Checkup</p> 
+
+    </div>
   )
 }
 
-export default card_3;
+export default Card;
