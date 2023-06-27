@@ -1,13 +1,15 @@
 .container {
     padding: 1.5rem 10rem 1.5rem 10rem;
+    
 }
 
 .wraper {
-    height: 50vh;
+    height: 45.8vh;
     width: 80vw;
     display: flex;
     justify-content: center;
     gap: 2rem;
+    border-bottom: 1px solid rgb(204, 200, 200);
 }
 .articles_text {
     height: 15vh;
