@@ -1,8 +1,11 @@
 import React from 'react';
 import styles from "./footer.module.css";
 
+
 const Footer = () => {
+    
   return (
+    <div className={styles.wraper}>
     <div className={styles.footer_container}>
         <div className={styles.footer_items}>Practo
             <a href='/#'>About</a>
@@ -60,6 +63,15 @@ const Footer = () => {
             <a href='/#'>GitHub</a>
         </div>
 
+        
+
+    </div>
+    
+    
+    <div className={styles.logo_container}>
+            <img src='https://www.practostatic.com/web-assets/images/white_practo_logo.svg' alt="logo"/>
+            <p style={{color: "gray"}}>Copyright @ 2023 Practo, All rights Reserved</p>
+        </div>
     </div>
   )
 }

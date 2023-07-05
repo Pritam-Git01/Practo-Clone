@@ -1,3 +1,8 @@
+/* .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
 .container p {
     width: 80vw;
     font-size: 30px;
@@ -7,4 +12,13 @@
     align-items: center;
     padding: 1.5rem 16rem 1.5rem 16rem;
     text-align: center;
+   
+}
+.left{
+    font-size: 2rem;
+
+}
+.right {
+    position: absolute;
+    left: 10rem;
 }

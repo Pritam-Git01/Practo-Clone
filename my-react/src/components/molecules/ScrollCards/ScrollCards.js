@@ -4,9 +4,17 @@ import styles from "./ScrollCards.module.css"
 import Text from '../../atoms/ScrollText/Text';
 
 const ScrollCards = () => {
+  const text = {
+    text_1: "Book an appointment for an in-clinic consultation",
+    text_2: "Find experienced doctors across all specialties"
+    
+  }
+  const style = {
+    display: "none"
+  };
   return (
     <div className={styles.wraper}>
-        <Text/>
+        <Text text={text} style={style}/>
     <div className={styles.container}>
         <Card/>
         <Card/>

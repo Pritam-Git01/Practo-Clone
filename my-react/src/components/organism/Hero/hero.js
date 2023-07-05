@@ -1,20 +1,23 @@
-import React from 'react';
+import React from "react";
 import styles from "./hero.module.css";
-
-import HeroImage from '../../atoms/HeroImage/image'
-import CardList from '../../molecules/CardList/CardList';
+import {SlLocationPin} from "react-icons/sl";
+import {AiOutlineSearch} from "react-icons/ai";
+import HeroImage from "../../atoms/HeroImage/image";
+import CardList from "../../molecules/CardList/CardList";
 
 const Hero = () => {
-    
   return (
     <div className={styles.container}>
-        <div className={styles.search_inputs}> <input type='search' className={styles.searchbar} />
-        <input type='search' className={styles.searchbar2} /></div>
-       
-        <HeroImage/>
-        <CardList/>
+      <div className={styles.inputs}>
+      
+      <SlLocationPin className={styles.location}/>  <input type="search" className={styles.searchbar}/>
+      <AiOutlineSearch className={styles.search_icon}/>  <input type="search" className={styles.searchbar2} placeholder="seacrh, doctors, clinics, hospitals etc."/>
+      
+        </div>
+      <HeroImage />
+      <CardList />
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

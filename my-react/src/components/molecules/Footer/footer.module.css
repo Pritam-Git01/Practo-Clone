@@ -1,5 +1,12 @@
+.wraper {
+  height: 74vh;
+  width: 100vw;
+  background-color: #28328c;
+}
+
+
 .footer_container {
-  height: 72vh;
+  height: 53vh;
   width: 100vw;
   
   background-color: #28328c;
@@ -17,10 +24,18 @@
   font-weight: 500;
 }
 .footer_items a {
-  color: white;
-  font-weight: 350;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 420;
   text-decoration: none;
 }
 .footer_container a:hover {
   text-decoration: underline;
+}
+.logo_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
 }

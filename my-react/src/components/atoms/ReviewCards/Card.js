@@ -1,13 +1,19 @@
 import React from "react";
 import styles from "./Card.module.css";
+// import {AiOutlineLeft} from "react-icons/ai";
+// import {AiOutlineRight} from "react-icons/ai";
 
-const Card = () => {
+const Card = ({data}) => {
   return (
     <div className={styles.container}>
+      {/* <AiOutlineLeft className={styles.left}/> */}
       <p>
-        Very easy to book,maintain history. Hassle free from older versions of
-        booking appointment via telephone. Thanks Practo for making it simple.
+        {data.text}
       </p>
+      {/* <AiOutlineRight className={styles.right}/> */}
+      <span className={styles.indicators}>
+        <button key={data.id}></button>
+      </span>
     </div>
   );
 };
