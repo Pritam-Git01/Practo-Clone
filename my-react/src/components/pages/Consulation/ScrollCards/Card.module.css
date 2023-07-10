@@ -1,0 +1,39 @@
+.wraper {
+   
+    height: 44vh;
+    width: 19vw;
+    cursor: pointer;
+}
+.wraper img {
+    border-radius: 0.4rem;
+    height: 30vh;
+    width: 18.9vw;
+}
+
+.wraper p {
+    font-size: 14px;
+    color: rgb(28, 25, 25);
+    padding-top: 0.5rem;
+}
+.btn {
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 700;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #14bef0;
+    width: 9.1vw;
+    margin-left: -0.5rem;
+  }
+  .icon {
+    color: #14bef0;
+    position: relative;
+    top: 0.4rem;
+   
+    font-size: 0.6rem;
+    display: inline;
+
+  }
+  

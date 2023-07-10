@@ -10,6 +10,7 @@ border-bottom: 2px solid rgb(224, 224, 246);
 }
 .logo {
   margin: 1.4em 4.2em 1em 5em;
+  cursor: pointer;
 }
 .nav_items_first {
   display: flex;

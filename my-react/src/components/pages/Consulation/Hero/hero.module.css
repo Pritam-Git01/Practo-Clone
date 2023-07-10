@@ -1,0 +1,54 @@
+.wraper{
+    height: 55vh;
+    width: 100vw;
+    background-color: #f8e9e6;
+}
+.container {
+    padding: 4rem 10vw 0.5rem 10vw;
+    display: flex;
+    
+}
+.text_container {
+    width: 40vw;
+    height: 45vh;
+    
+    display: flex;
+    flex-direction: column;
+}
+.text_container > h1 {
+    font-size: 2.3rem;
+     font-weight:630;
+     color: #2d2d32;
+
+}
+.text_container > p {
+    padding-top: 1rem;
+    font-size: 1.1rem;
+     color: #2d2d32;
+}
+.icon_container {
+    display:flex;
+     padding: 3.2rem 1rem 0 0;
+}
+.icon_container > P{
+    padding-left: 0.5rem;
+}
+.img_container{
+    height: 45vh;
+    width: 40vw;
+
+}
+.img_container > img {
+    margin-top: 2.35rem;
+}
+.btn {
+    margin-top: 4.2rem;
+    height: 3.1rem;
+    width: 10.6vw;
+    background-color: rgb(31, 161, 213);
+    color: white;
+    font-size: 1.14rem;
+    font-weight: 550;
+    border: none;
+    border-radius: 0.3rem;
+}

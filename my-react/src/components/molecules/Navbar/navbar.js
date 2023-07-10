@@ -1,22 +1,24 @@
 import React from 'react';
 import styles from './navbar.module.css';
 import Logo from '../../atoms/Logo/logo';
-import {RiArrowDropDownLine} from "react-icons/ri"
+import {RiArrowDropDownLine} from "react-icons/ri";
+import { useNavigate } from 'react-router-dom';
 
 
 function Navbar() {
+    const navigate = useNavigate();
   return (
     <div className={styles.nav_container}>
 
         <nav className={styles.nav_wraper}>
-            <div className={styles.logo}>
-        <Logo/>
+            <div onClick={() => navigate("/")} className={styles.logo}>
+        <Logo />
 
             </div>
             <div className={styles.nav_items_first}>
                 <ul>
-                    <li>Find Doctors</li>
-                    <li>Video Consult</li>
+                    <li onClick={() => navigate("/consultation")}>Find Doctors</li>
+                   <li onClick={() => navigate("/consultation")}>Video Consult</li>
                     <li>Medicines</li>
                     <li>Lab Tests</li>
                     <li>Surgeries</li>

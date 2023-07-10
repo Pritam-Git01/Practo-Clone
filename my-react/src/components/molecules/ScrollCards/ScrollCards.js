@@ -10,7 +10,8 @@ const ScrollCards = () => {
     
   }
   const style = {
-    display: "none"
+    display: "none",
+
   };
   return (
     <div className={styles.wraper}>

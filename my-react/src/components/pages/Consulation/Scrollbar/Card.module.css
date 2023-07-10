@@ -1,0 +1,36 @@
+.Cards_wraper {
+    height: 30vh;
+    width: 11vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0.2rem 2rem;
+    box-shadow: 0 3px 6px 0 rgba(45,45,51,.08)
+  }
+  
+  .text{
+      font-weight: 600;
+  }
+  
+  .btn {
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 700;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #14bef0;
+    width: 9.1vw;
+  }
+  .icon {
+    color: #14bef0;
+    position: relative;
+    top: 0.4rem;
+   
+    font-size: 1.4rem;
+    display: inline;
+
+  }
+  
