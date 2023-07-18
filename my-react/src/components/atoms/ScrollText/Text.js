@@ -12,7 +12,7 @@ const Text = ({ text, style }) => {
         <p>{text_2}</p>
       </div>
       <div className={styles.btn}>
-        <button style={style} className={styles.spcl_btn} >{text_3}</button> 
+        <button style={style} className={styles.spcl_btn} >{text_3? text_3:"View All Specialisties"} </button> 
         
       </div>
     </div>

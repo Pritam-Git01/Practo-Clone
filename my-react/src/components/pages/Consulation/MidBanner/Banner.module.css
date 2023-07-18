@@ -1,0 +1,11 @@
+.wraper {
+    padding: 3.6rem 10rem 2rem 10rem;
+    height: 21.8vh;
+    width: 100vw;
+   margin-bottom: 2rem;
+    align-items: center;
+    column-gap: 8vw;
+   justify-content: flex-start;
+    background-color: #2e2d32;
+    color: white;
+}

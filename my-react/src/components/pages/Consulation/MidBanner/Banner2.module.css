@@ -1,0 +1,17 @@
+.wraper {
+    padding: 2rem 2rem 2rem 2rem;
+    margin: 2rem 0;
+    height: 16.8vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #2e2d32;
+    color: white;
+}
+.wraper div {
+    text-align: center;
+}
+span{
+    font-size: 20px;
+    padding-left: 0.1rem;
+}

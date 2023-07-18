@@ -1,5 +1,6 @@
 .wraper {
-    padding: 0rem 10rem 1rem 10rem;
+    margin: 2rem 10rem 2rem 10rem;
+overflow-x: hidden;
 }
 .wraper h1 {
     text-align: center;

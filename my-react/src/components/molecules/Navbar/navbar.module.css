@@ -1,9 +1,9 @@
 .nav_container {
   height: 10vh;
-  width: 100vw;
+  width: 100%;
   position: sticky;
  
-border-bottom: 2px solid rgb(224, 224, 246);
+border-bottom: 2px solid #e0e0f6;
 }
 .nav_wraper {
   display: flex;

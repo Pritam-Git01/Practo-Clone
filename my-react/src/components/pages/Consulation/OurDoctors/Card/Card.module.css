@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wraper {
+    min-height: 11.8vh;
+   min-width: 22.8%;
+   background: #fff;
+    
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+    line-height: 1.1;
+    color: #414146;
+    border: 0.5px solid #eeeef4;
+    border-radius: 0.4rem;
+    
+    
+
+}
+
+
+.text > p{
+   padding-top: 0.2rem;
+    font-size: 12px;
+}
+
+.text > h4 {
+    font-weight: bold
+}

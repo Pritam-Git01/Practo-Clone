@@ -1,10 +1,11 @@
 .container {
-    padding: 2rem 10rem 2rem 10rem;
+    margin: 2rem 10rem 2rem 10rem;
+    overflow-x: hidden;
    
 }
  .searchbar2 {
     height: 2.4rem;
-    width: 29vw;
+    width: 29%;
     color: rgb(80, 79, 79);
     font-size: 1rem;
     padding-left: 2.6rem;
