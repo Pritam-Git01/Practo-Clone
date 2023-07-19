@@ -22,7 +22,7 @@ const Banner2 = () => {
           <span style={{fontSize:"24px", fontWeight:"500"}}>
              /
           </span>
-          <span>
+          <span style={{fontSize:"18px", fontWeight:"450", paddingLeft:"0.1rem"}}>
             
            5
           </span>

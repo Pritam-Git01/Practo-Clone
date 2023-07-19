@@ -2,6 +2,7 @@
   height: 10vh;
   width: 100%;
   position: sticky;
+
  
 border-bottom: 2px solid #e0e0f6;
 }
@@ -45,6 +46,7 @@ border-bottom: 2px solid #e0e0f6;
 }
 .nav_items_second ul li {
   display: flex;
+  
   justify-content: center;
   align-items: center;
   cursor: pointer;

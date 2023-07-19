@@ -7,6 +7,7 @@ import ScrollCards from './ScrollCards/scrollCard'
 import Doctors from './OurDoctors/Doctors';
 import Banner from './MidBanner/Banner'
 import Banner2 from './MidBanner/Banner2'
+import Question from './FAQ/Question'
 
 
 
@@ -22,6 +23,8 @@ const Consultation = () => {
 <h1 className={styles.text}>Our Doctors</h1>
 <Doctors/>
 <Banner2/>
+
+<Question/>
 <Banner/>
 
 
