@@ -1,0 +1,35 @@
+ .wraper {
+    display: flex;
+    margin-top: -2.6rem;
+
+    justify-content: center;
+    align-items: center;
+  /* overflow: hidden;  */
+ 
+
+ }
+.left {
+font-size: 2rem;
+position: relative;
+top: 14vh;
+cursor: pointer;
+}
+.right {
+    font-size: 2rem;
+position: absolute;
+top: 14vh;
+right: 2.6rem;
+cursor: pointer; 
+
+
+}
+.left:hover {
+    background-color: rgb(173, 170, 170);
+    transition: all ease-in-out 0.5s;
+    border-radius: 0.2rem;
+}
+.right:hover {
+    background-color: rgb(181, 180, 180);
+    transition: all ease-in-out 0.5s;
+    border-radius: 0.2rem;
+}

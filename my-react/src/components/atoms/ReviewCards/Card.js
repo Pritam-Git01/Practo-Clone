@@ -5,7 +5,7 @@ import styles from "./Card.module.css";
 
 const Card = ({data}) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.card_container}>
       {/* <AiOutlineLeft className={styles.left}/> */}
       <p>
         {data.text}

@@ -9,14 +9,16 @@ import Review from '../../molecules/Reviews/review';
 
 
 
+
 const Home = () => {
   return (
     <div className={styles.home_container}>
-    <Hero/>
+      
+   <Hero/>
     <Scrollbar/>
     <ScrollCards/>
     <Blogs/>
-    <Review/>
+    <Review/> 
    
     </div>
   )
