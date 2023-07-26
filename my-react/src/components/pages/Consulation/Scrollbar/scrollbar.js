@@ -7,11 +7,13 @@ import { useState, useEffect } from "react";
 import styles from "./scrollbar.module.css";
 import Cards from "./Card";
 import {v4 as uuid} from "uuid";
+import { useNavigate } from "react-router-dom";
 
 const Scrollbar = () => {
   const [specialist, setSpecialist] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const navigate = useNavigate()
 
   const text = {
     id:uuid(),
@@ -36,12 +38,28 @@ const Scrollbar = () => {
     };
     fetchData();
   }, []);
+
+function handleNavigate(){
+  navigate("/consulting")
+}
+
+const cunsulting = (e) => {
+  console.log(e)
+  const details = {
+    name:e.specialist,
+    price:e.price
+  }
+  localStorage.setItem("doctorName",JSON.stringify(details))
+  navigate("/consulting-2")
+
+}
+
   if (error) return <Error message={"Error while fetching Speciallist Doctors Data"} />;
   return (
     <div className={styles.wraper}>
-      <Text text={text} style={style} />
+      <Text text={text} style={style}  navigating={handleNavigate}/>
       <div className={styles.cards}>
-        {loading ? <Loader /> : specialist.map((item) => <Cards data={item} />)}
+        {loading ? <Loader /> : specialist.map((item) => <Cards handle={cunsulting} key={item.id} data={item} />)}
       </div>
     </div>
   );

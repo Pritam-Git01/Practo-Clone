@@ -7,11 +7,13 @@ import Loader from "../../../atoms/Loader/Loader";
 import Error from "../../../atoms/Error/Error";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ScrollCards = () => {
   const [symptomsData, setSymptomsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const navigate = useNavigate()
 
   const text = {
     text_1: "Common Health Concerns",
@@ -35,15 +37,38 @@ const ScrollCards = () => {
     };
     fetchData();
   }, []);
+
+  function handleClick(){
+    navigate("/consulting")
+  }
+
+
+
+const handleConsulting = async (e) => {
+
+  const {data} = await axios.get(`http://localhost:5000/consult-2/${e.concern}`)
+  const details = {
+    name:data.doctor,
+    price:data.price
+  }
+  localStorage.setItem("doctorName", JSON.stringify(details))
+  // localStorage.setItem("fee", JSON.stringify(data.price))
+  // const check = JSON.parse(localStorage.getItem("doctorName"))
+  // console.log("i am from local storage", check.price)
+  navigate("/consulting-2")
+}
+
+
+
   if (error) return <Error message="Error while fetching Symptoms Data" />;
   return (
     <div className={styles.wraper}>
-      <Text text={text} style={style} />
-      <div className={styles.cards}>
+      <Text text={text} style={style} navigating={handleClick}/>
+      <div  className={styles.cards}>
         {loading ? (
           <Loader />
         ) : (
-          symptomsData.map((item) => <Cards data={item} />)
+          symptomsData.map((item) => <Cards handle={handleConsulting} key={item.id} data={item} />)
         )}
       </div>
     </div>

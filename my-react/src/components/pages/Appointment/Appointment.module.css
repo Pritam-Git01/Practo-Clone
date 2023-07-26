@@ -1,0 +1,164 @@
+.container {
+  background: #f0f0f5;
+  height: 100vh;
+  width: 100vw;
+ 
+ 
+
+}
+
+.wraper {
+ min-height: 58.8vh;
+ max-height: 82vh;
+  max-width: 980px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #fff;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.35rem;
+  margin-top: 2rem;
+
+}
+.first {
+  height: 98%;
+  width: 46%;
+  padding-left: 0.8rem;
+
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+
+  
+}
+.first > h2 {
+  margin-top: 1rem;
+
+  font-size: 26px;
+  padding: 10px 15px;
+  border-bottom: 1px solid #f0f0f5;
+
+  font-weight: 600;
+}
+.first > p {
+  font-size: 16px;
+  padding: 20px 15px 10px 15px;
+}
+.first ~ p {
+  padding: 32px;
+}
+.first > span {
+  padding: 2px 15px;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: #b4b4be;
+}
+.first > textarea {
+  margin: 0px 15px;
+  height: 4rem;
+  padding: 0.68rem;
+  border: 1px solid #e0e0e5;
+  color: #2d2d32;
+  outline: #e0e0e5;
+  resize: none;
+}
+.first > textarea:focus {
+  border-color: #719ece;
+}
+.first > textarea::placeholder {
+  color: #a8a8ac;
+}
+
+.first > label {
+  padding: 0 15px 15px 15px;
+}
+.first > input {
+  margin: 0px 15px;
+  height: 2.68rem;
+  width: 16rem;
+  padding: 0.4rem;
+  border: 1px solid #e0e0e5;
+  color: #2d2d32;
+  outline: #719ece;
+  border-radius: 0.2rem;
+}
+.first > input::-webkit-outer-spin-button,
+.first > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.first > input:focus {
+  border: 1px solid #719ece;
+}
+.first > input::placeholder {
+  color: #a8a4a4;
+}
+.first > button {
+  height: 2.6rem;
+  width: 9rem;
+  margin-left: 1rem;
+  margin-top: 0.8rem;
+  font-size: 16px;
+  font-weight: 600;
+  /* background-color: #6c6c6f;
+  color: #fff; */
+  border: none;
+  border-radius: 0.2rem;
+}
+
+.underline {
+  min-height: 46vh;
+  max-height: 62vh;
+
+  width: 1px;
+  border: 1px solid #98989b;
+  margin: auto;
+  margin-top: 4.2rem;
+}
+.second {
+  height: 98%;
+  width: 46.9%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: auto;
+  /* justify-content: center; */
+  align-items: center;
+}
+.second > img {
+  height: 108px;
+  width: 108px;
+}
+.second > h2 {
+  color: #2d2d32;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.specialist {
+    height: 2.4rem;
+    width: 14vw;
+    border: 1px solid #2d2d32;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.2rem;
+    margin-bottom: 0.6rem;
+    border: 1px solid #e0e0e5;
+  
+    margin-left: 1rem;
+    padding: 0.4rem 0.5rem;
+}
+
+
+/*
+ .tick {
+    width: 20px;
+    height: 20px;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/447/447147.png");
+    background-size: cover;
+  }
+  .specialist > div > input[type='radio']:checked + .tick {
+    display: inline-block;
+  } */
+  

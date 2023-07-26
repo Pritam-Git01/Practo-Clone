@@ -35,7 +35,7 @@ const ScrollCards = () => {
     <div className={styles.wraper}>
       <Text text={text} style={style} />
       <div className={styles.container}>
-        {loading ? <Loader /> : appointData.map((item) => <Card data={item} />)}
+        {loading ? <Loader /> : appointData.map((item) => <Card key={item.id} data={item} />)}
       </div>
     </div>
   );

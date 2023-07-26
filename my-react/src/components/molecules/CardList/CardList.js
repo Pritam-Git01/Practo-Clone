@@ -26,17 +26,13 @@ const CardList = () => {
   }, []);
   if (error) return <Error message={"Error while fetching feature Data"} />;
   return (
-    <>
+    <div className={styles.wraper}>
       {loading ? (
         <Loader />
       ) : (
-        <div className={styles.wraper}>
-          {featureData.map((item) => (
-            <Card key={item.id} data={item} />
-          ))}
-        </div>
+        featureData.map((item) => <Card key={item.id} data={item} />)
       )}
-    </>
+    </div>
   );
 };
 

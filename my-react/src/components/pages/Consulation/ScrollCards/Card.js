@@ -3,9 +3,9 @@ import styles from "./Card.module.css";
 
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
 
-const Card = ({data}) => {
+const Card = ({data,handle}) => {
   return (
-    <div className={styles.wraper}>
+    <div onClick={() => handle(data)} className={styles.wraper}>
          <img src={data.image} alt='dentist'/> 
         <p>{data.concern}</p>
         <p>₹{data.price}</p>

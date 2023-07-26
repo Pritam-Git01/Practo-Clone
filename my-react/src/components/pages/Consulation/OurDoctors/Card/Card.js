@@ -2,15 +2,16 @@ import React from 'react';
 import styles from "./Card.module.css";
 import Avatar from "@mui/material/Avatar"
 
-const DoctorsCard = () => {
+const DoctorsCard = ({data}) => {
+  
   return (
     <div className={styles.wraper}>
-        <Avatar sx={{height:50,width:50}} alt="Cindy Baker" src="https://www.istockphoto.com/photo/never-fear-the-doctor-is-here-gm507954725-45292692" />
+        <Avatar sx={{height:50,width:50}} alt='doctors-image' src={data.image} />
         <div className={styles.text}>
-            <h4>Dr.Shivangi Mathon</h4>
-            <p>Dermatologist</p>
-            <p>8 years experiences</p>
-            <p>16003 consultation done</p>
+            <h4>{data.name}</h4>
+            <p>{data.type}</p>
+            <p>{data.exp} years experiences</p>
+            <p>{data.consultation} consultation done</p>
 
         </div>
 

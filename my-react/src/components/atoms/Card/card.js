@@ -3,7 +3,7 @@ import styles from  "./card.module.css"
 
 const Card = ({data}) => {
   return (
-    <div className={styles.container}>
+    <div  className={styles.container}>
      <div className={styles.img_container}> 
        <img src={data.image} alt='doctors'/>
        </div>
