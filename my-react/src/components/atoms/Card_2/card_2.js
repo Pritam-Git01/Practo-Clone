@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from "./card_2.module.css";
 
-const Cards = ({style,icon}) => {
+const Cards = ({style,icon,data,handle}) => {
   return (
-    <div style={style} className={styles.Cards_wraper}>
+    <div  style={style} className={styles.Cards_wraper}>
       {icon}
-        <img src={"https://www.practostatic.com/consult/consult-home/symptoms_icon/coughing.png"} alt='specialist'/>
-        <p className={styles.text}>Cold,cough or fever</p>
-        <button className={styles.btn}>consult now </button>
+        <img src={data.image} alt='specialist'/>
+        <p className={styles.text}>{data.concern}</p>
+        <button onClick={() => handle(data)} className={styles.btn}>{data.text} </button>
     </div>
   )
 }

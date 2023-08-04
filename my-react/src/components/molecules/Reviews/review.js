@@ -14,13 +14,12 @@ const Review = () => {
     },
     {
       id: 1002,
-      text: "Very easy to book,maintain history. Hassle free from older versions of booking appointment via telephone. Thanks Practo for making it simple."
+      text: "Very good app. Well thought about booking/rescheduling/cancelling. Also doctor feedback management is good and describes all the basics in a good way."
 
     },
     {
       id: 1003,
-      text: "Very easy to book,maintain history. Hassle free from older versions of booking appointment via telephone. Thanks Practo for making it simple."
-
+      text: "Very helpful. Far easier things doing on computer. Allow quick and easy search with speedy booking. Even maintains the history of doctor's visited."
     }
   ];
   return (

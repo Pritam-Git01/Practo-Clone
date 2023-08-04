@@ -11,7 +11,7 @@
 .wraper div {
     text-align: center;
 }
-span{
+div ~ span{
     font-size: 20px;
     padding-left: 0.1rem;
 }

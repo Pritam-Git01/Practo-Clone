@@ -1,0 +1,124 @@
+.wraper {
+    display: flex;
+    min-height: 80vh;
+    max-height: 86.8vh;
+    width: 100vw;
+  
+  }
+  .img_container {
+    width: 50%;
+    height: 100%;
+    padding-top: 6%;
+    display: flex;
+    justify-content: right;
+    /* padding-left: 24%; */
+  
+  }
+  .img_container > img {
+    height: 68%;
+    width: 55%;
+    margin-right: 2rem;
+    /* transform: scale(1.1,1.1); */
+  }
+  .form {
+    width: 50%;
+    height: 100%;
+  
+  }
+  .form_containers {
+    height: 72.8%;
+    margin-top: 10%;
+    width: 51.6%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 0.5rem 1.6rem 0 1.6rem;
+    border: 1px solid rgb(228, 226, 226);
+    border-radius: 0.5rem;
+  }
+  .form_container {
+    display: flex;
+    flex-direction: column;
+    height: 18%;
+    /* padding: 0.3rem; */
+  }
+
+  .form_container  input {
+    height: 2.2rem;
+    
+  
+    border: 1px solid #cacad3;
+    border-radius: 0.2rem;
+  
+    color: #27272e;
+    padding-left: 1rem;
+    margin-bottom: 0.2rem;
+   
+  }
+
+  .form_container  input:focus {
+    outline-style: solid;
+    outline-color: #3498db;
+    outline-width: 1px;
+    border: none;
+  }
+  .form_container  label {
+    color: #5c5c5f;
+    font-size: 1rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  /* .form_container > label > span {
+    margin: 0 0.15rem 0 0.3rem;
+  } */
+  .form_container  input::placeholder {
+    color: #cacad3;
+
+    font-size: 0.9rem;
+  }
+  .second {
+    display: flex;
+    align-items: center;
+    margin-top: 0.6rem;
+}
+  .second > input[type='checkbox']{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+
+}
+.second > label  {
+    font-size: 12px;
+    color: #5c5c5f;
+    margin-left: 1rem;
+    margin-top: 0.6rem;
+
+}
+.terms {
+    margin-left: 2rem;
+    font-size: 10px;
+    color: #5c5c5f;
+
+}
+.terms > span {
+    color: #14bef0;
+}
+.terms > span:hover{
+text-decoration: underline;
+}
+.otp_btn {
+    height: 3rem;
+    background-color: #14bef0;
+    color: white;
+    margin: 1rem 0;
+    border: 1px solid #14bef0;
+    font-size: 16px;
+    border-radius: 0.4rem;
+    cursor: pointer;
+
+}
+.error {
+  color: red;
+  font-size: 10px;
+
+}

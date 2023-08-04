@@ -1,0 +1,26 @@
+.wraper {
+display: flex;
+margin: 6rem 10rem 2rem 10rem;
+background-color: #fff;
+
+flex-direction: row;
+
+    
+}
+.wraper > h2 {
+    position: relative;
+    bottom: 2.6rem;
+    left: 4.6rem;
+    font-size: 2rem;
+    font-weight: 550;
+    padding-top: 2rem;
+    color: #414146;
+    
+}
+.card_container {
+    display: flex;
+    flex-wrap: wrap;
+justify-content: space-between;
+row-gap:4.4rem;
+padding-top: 4rem;
+}

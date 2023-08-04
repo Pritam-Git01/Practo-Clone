@@ -1,0 +1,114 @@
+.wraper {
+  display: flex;
+  height: 80vh;
+  width: 100vw;
+
+}
+.img_container {
+  width: 50%;
+  height: 100%;
+  padding-top: 6%;
+  display: flex;
+  justify-content: right;
+  /* padding-left: 24%; */
+
+}
+.img_container > img {
+  height: 76%;
+  width: 55%;
+  margin-right: 2rem;
+  /* transform: scale(1.1,1.1); */
+}
+.form {
+  width: 50%;
+  height: 100%;
+
+}
+.form_container {
+  height: 54.8%;
+  margin-top: 10%;
+  width: 51.6%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 1.6rem 1.6rem 0 1.6rem;
+  border: 1px solid rgb(228, 226, 226);
+  border-radius: 0.5rem;
+}
+.form_container > input {
+  height: 2.2rem;
+
+  border: 1px solid #cacad3;
+  border-radius: 0.2rem;
+
+  color: #787887;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+ 
+}
+.form_container > input:focus {
+  outline-style: solid;
+  outline-color: #3498db;
+  outline-width: 1px;
+  border: none;
+}
+.form_container > label {
+  color: #5c5c5f;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.form_container > label > span {
+  margin: 0 0.15rem 0 0.3rem;
+}
+.form_container > input::placeholder {
+  color: #cacad3;
+
+  font-size: 0.9rem;
+}
+.first, .second {
+    display: flex;
+    align-items: center;
+    margin-top: 0.6rem;
+}
+.first > input[type='checkbox']{
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+
+}
+.first > label {
+    font-size: 12px;
+    color: #5c5c5f;
+    margin-left: 1rem;
+    
+}
+.second > label {
+    font-size: 12px;
+    color: #5c5c5f;
+    margin-left: 1rem;
+
+}
+.btn_1{
+    margin-left: 4.4rem;
+    border: none;
+    font-size: 12px;
+    color: #14bef0;
+    background: none;
+    cursor: pointer;
+}
+.second> input[type='checkbox']{
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+
+}
+.login_btn {
+    height: 3rem;
+    background-color: #14bef0;
+    color: white;
+    margin: 1rem 0;
+    border: 1px solid #14bef0;
+    font-size: 16px;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
