@@ -7,14 +7,17 @@
 .img_container {
   width: 50%;
   height: 100%;
-  padding-top: 8.8%;
-  padding-left: 18.90%;
+  padding-top: 6%;
+  display: flex;
+  justify-content: right;
+  /* padding-left: 24%; */
 
 }
 .img_container > img {
-  height: 90%;
-  width: 80%;
-  transform: scale(1.1);
+  height: 76%;
+  width: 55%;
+  margin-right: 2rem;
+  /* transform: scale(1.1,1.1); */
 }
 .form {
   width: 50%;
@@ -23,7 +26,7 @@
 }
 .form_container {
   height: 54.8%;
-  margin-top: 20%;
+  margin-top: 10%;
   width: 51.6%;
   display: flex;
   justify-content: space-evenly;

@@ -1,14 +1,16 @@
 import React from 'react';
 import styles from "./card_4.module.css";
 
-const Card = () => {
+const Card = ({data}) => {
   return (
-    <div className={styles.container}>
-        <img src={'https://www.practostatic.com/fit/5fd27b74d9477cb633445cf3f105078bbc479910'} alt='blogs'/>
-        <p className={styles.text1}>CORONAVIRUS</p>
-        <h4 className={styles.heading}>12 Coronavirus Myths and Facts that you should be aware of</h4>
-        <p>Dr. Diana Borgio</p>
-        </div>
+    <a href={data.link}  className={styles.container}>
+     
+        <img src={data.image} alt='blogs'/>
+        <p className={styles.text1}>{data.text}</p>
+        <h4 className={styles.heading}>{data.text}</h4>
+        <p>{data.name}</p>
+      
+        </a>
   )
 }
 

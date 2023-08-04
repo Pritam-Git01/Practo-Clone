@@ -1,29 +1,33 @@
 .wraper {
     display: flex;
-    height: 80vh;
+    min-height: 80vh;
+    max-height: 86.8vh;
     width: 100vw;
   
   }
   .img_container {
     width: 50%;
     height: 100%;
-    padding-top: 8.8%;
-    padding-left: 18.90%;
+    padding-top: 6%;
+    display: flex;
+    justify-content: right;
+    /* padding-left: 24%; */
   
   }
   .img_container > img {
-    height: 90%;
-    width: 80%;
-    transform: scale(1.1);
+    height: 68%;
+    width: 55%;
+    margin-right: 2rem;
+    /* transform: scale(1.1,1.1); */
   }
   .form {
     width: 50%;
     height: 100%;
   
   }
-  .form_container {
+  .form_containers {
     height: 72.8%;
-    margin-top: 20%;
+    margin-top: 10%;
     width: 51.6%;
     display: flex;
     justify-content: space-evenly;
@@ -32,35 +36,42 @@
     border: 1px solid rgb(228, 226, 226);
     border-radius: 0.5rem;
   }
+  .form_container {
+    display: flex;
+    flex-direction: column;
+    height: 18%;
+    /* padding: 0.3rem; */
+  }
 
-  .form_container > input {
+  .form_container  input {
     height: 2.2rem;
     
   
     border: 1px solid #cacad3;
     border-radius: 0.2rem;
   
-    color: #787887;
+    color: #27272e;
     padding-left: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
    
   }
 
-  .form_container > input:focus {
+  .form_container  input:focus {
     outline-style: solid;
     outline-color: #3498db;
     outline-width: 1px;
     border: none;
   }
-  .form_container > label {
+  .form_container  label {
     color: #5c5c5f;
     font-size: 1rem;
+    margin-top: 0.8rem;
     margin-bottom: 0.5rem;
   }
   /* .form_container > label > span {
     margin: 0 0.15rem 0 0.3rem;
   } */
-  .form_container > input::placeholder {
+  .form_container  input::placeholder {
     color: #cacad3;
 
     font-size: 0.9rem;
@@ -104,5 +115,10 @@ text-decoration: underline;
     font-size: 16px;
     border-radius: 0.4rem;
     cursor: pointer;
+
+}
+.error {
+  color: red;
+  font-size: 10px;
 
 }

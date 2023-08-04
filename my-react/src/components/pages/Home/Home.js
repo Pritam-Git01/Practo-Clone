@@ -15,7 +15,7 @@ import Footer from '../../molecules/Footer/footer';
 const Home = () => {
   return (
     <div className={styles.home_container}>
-    <Navbar/>  
+      <Navbar/>
    <Hero/>
     <Scrollbar/>
     <ScrollCards/>

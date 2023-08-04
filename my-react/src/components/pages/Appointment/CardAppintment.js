@@ -75,12 +75,11 @@ const Appointment2 = () => {
         <input
           type="radio"
           checked={true}
-          name="specialist"
-          
+          name="specialist" 
           id='doctor'
         />
         <label style={{ paddingLeft: "0.68rem" }} htmlFor='doctor'>
-         {doctorData.name}
+         {doctorData.name? doctorData.name:"Doctor Name"}
           
         </label>
       </div>

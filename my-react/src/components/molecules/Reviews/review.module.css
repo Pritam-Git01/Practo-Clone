@@ -1,12 +1,12 @@
 .wraper {
-    margin: 2rem 10rem 2rem 10rem;
+    margin: 0rem 10rem 0rem 10rem;
 overflow-x: hidden;
 }
 .wraper h1 {
     text-align: center;
     color: #414146;
     font-weight: 500;
-    /* margin-bottom: -4rem; */
+    margin-bottom: -4rem;
 }
 
 .container {

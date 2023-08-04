@@ -6,7 +6,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Loader from "../../atoms/Loader/Loader";
 import Error from "../../atoms/Error/Error";
+import { useNavigate } from "react-router-dom";
+
+
+
 const ScrollCards = () => {
+  const navigate = useNavigate()
   const [appointData, setAppointData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -30,12 +35,18 @@ const ScrollCards = () => {
     };
     appointData();
   }, []);
-  if (error) return <Error message={"Error while fetching clinic appointment Data"} />;
+
+  if (error)
+    return <Error message={"Error while fetching clinic appointment Data"} />;
   return (
     <div className={styles.wraper}>
       <Text text={text} style={style} />
       <div className={styles.container}>
-        {loading ? <Loader /> : appointData.map((item) => <Card key={item.id} data={item} />)}
+        {loading ? (
+          <Loader />
+        ) : (
+          appointData.map((item) =>  <Card   key={item.id} data={item} />)
+        )}
       </div>
     </div>
   );

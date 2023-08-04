@@ -17,7 +17,7 @@
 }
 
 .img_container {
-    width: 200px;
+    width: 100%;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     height: 170px;
@@ -27,7 +27,8 @@
 .img_container img {
     height: 90%;
     width: 60%;
-    margin: 1rem 1rem 0 2.53rem;
+    margin: 1.1rem 1rem 0 2.53rem;
+   
     
 }
 .text {

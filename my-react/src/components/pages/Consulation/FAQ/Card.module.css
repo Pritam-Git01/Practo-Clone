@@ -10,4 +10,11 @@
 }
 .container > p {
   color: #787887;
+  font-weight: 600;
+}
+.toggle {
+display: inline-block;
+font-size: 16px;
+text-decoration: underline;
+
 }

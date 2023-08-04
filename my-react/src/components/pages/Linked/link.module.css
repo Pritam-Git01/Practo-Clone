@@ -1,0 +1,59 @@
+.wraper{
+    width: 100vw;
+    margin-bottom: 1rem ;
+}
+.btns {
+    height: 8vh;
+    width: 80%;
+    border-bottom: 1px solid #d8d5d5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+/* .btns  button {
+   height: 8vh;
+    margin-left: 4rem;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 450;
+    color: #4A4A4A;
+    cursor: pointer;
+   
+} */
+.btns  button:hover {
+    text-decoration: underline;
+    
+}
+/* .btns  button:active{
+    font-weight: 600;
+    color: #14bef0;
+    text-decoration: none;
+    
+    border-bottom: 3px solid #14bef0;
+} */
+.styleBtn {
+       height: 8vh;
+    margin-left: 4rem;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 450; 
+    cursor: pointer;
+    font-weight: 600;
+    color: #14bef0;
+    border-bottom: 4px solid #3498db;
+}
+.setBtn {
+    height: 8vh;
+    margin-left: 4rem;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 450;
+    color: #4A4A4A;
+    cursor: pointer;
+
+}
+

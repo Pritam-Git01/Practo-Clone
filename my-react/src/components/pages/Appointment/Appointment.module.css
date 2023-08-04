@@ -50,6 +50,7 @@
 .first > span {
   padding: 2px 15px;
   font-size: 10px;
+  
   letter-spacing: 0.5px;
   color: #b4b4be;
 }
@@ -70,7 +71,7 @@
 }
 
 .first > label {
-  padding: 0 15px 15px 15px;
+  padding: 0 28px 8px 15px;
 }
 .first > input {
   margin: 0px 15px;

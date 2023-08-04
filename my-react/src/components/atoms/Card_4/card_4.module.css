@@ -3,7 +3,9 @@
     width: 20vw;
     cursor: pointer;
     color: rgb(69, 67, 67);
+    text-decoration: none;
 }
+
 .container img {
     height: 26vh;
     width: 20vw;
