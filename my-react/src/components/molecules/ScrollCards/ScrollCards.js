@@ -25,7 +25,7 @@ const ScrollCards = () => {
   useEffect(() => {
     const appointData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/adata");
+        const { data } = await axios.get("https://server-practo.onrender.com/adata");
         setAppointData(data);
         setLoading(false);
       } catch (error) {

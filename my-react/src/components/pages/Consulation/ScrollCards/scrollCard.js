@@ -46,7 +46,7 @@ const ScrollCards = () => {
 
 const handleConsulting = async (e) => {
 
-  const {data} = await axios.get(`http://localhost:5000/consult-2/${e.concern}`)
+  const {data} = await axios.get(`https://server-practo.onrender.com/${e.concern}`)
   const details = {
     name:data.doctor,
     price:data.price

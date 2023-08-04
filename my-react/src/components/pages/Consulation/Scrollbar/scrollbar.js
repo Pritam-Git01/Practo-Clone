@@ -28,7 +28,7 @@ const Scrollbar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/specialist");
+        const { data } = await axios.get("https://server-practo.onrender.com/specialist");
         setSpecialist(data);
         setLoading(false);
       } catch (error) {

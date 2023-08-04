@@ -9,7 +9,6 @@ import Linked from "./components/pages/Linked/link";
 import LogIn from "./components/pages/LogIn/login";
 import Signup from "./components/pages/SignUP/signup";
 import Payment from "./components/pages/Payment/payment";
-import OTP from "./components/pages/Appointment/OTP";
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
         <Route path="signup" element={<Signup />} />
         </Route>
         <Route path="/payment" element={<Payment />} />
-        <Route path="/check" element={<OTP />} />
       </Routes>
     </Router>
   );

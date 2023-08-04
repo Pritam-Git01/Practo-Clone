@@ -40,7 +40,7 @@ const Scrollbar = () => {
 const cunsulting = async (e) => {
 
   const problem = e.concern.slice(0,4)
-  const {data} = await axios.get(`http://localhost:5000/consult-2/${problem}`)
+  const {data} = await axios.get(`https://server-practo.onrender.com/${problem}`)
   const details = {
     name:data.doctor,
     price:data.price

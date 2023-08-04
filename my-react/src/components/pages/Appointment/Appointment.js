@@ -50,7 +50,7 @@ const Appointment = () => {
 
   const fetchData = async () => {
  if (query.trim().length >= 3) {
-      const { data } = await axios.get(`http://localhost:5000/consult/${query}`);
+      const { data } = await axios.get(`https://server-practo.onrender.com/${query}`);
       setConcernData(data);
       setShowSpecialist(true)
 

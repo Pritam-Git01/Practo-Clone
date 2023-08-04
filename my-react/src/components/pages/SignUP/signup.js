@@ -15,7 +15,7 @@ const Signup = () => {
 
   const handleSubmition = async (data) => {
    try{
-    const response = await axios.post("http://localhost:5000/users", {
+    const response = await axios.post("https://server-practo.onrender.com/users", {
       name:data.fullName,
       phone:data.mobile,
       password:data.password
