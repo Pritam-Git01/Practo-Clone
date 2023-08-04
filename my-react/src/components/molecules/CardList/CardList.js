@@ -14,7 +14,7 @@ const CardList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/fdata");
+        const { data } = await axios.get("https://server-practo.onrender.com/fdata");
         setFeatureData(data);
         setLoading(false);
       } catch (error) {

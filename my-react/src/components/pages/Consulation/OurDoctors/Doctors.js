@@ -14,7 +14,7 @@ const Doctors = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/doctors");
+        const { data } = await axios.get("https://server-practo.onrender.com/doctors");
         setDoctors(data);
         setLoading(false);
       } catch (error) {
