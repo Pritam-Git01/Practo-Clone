@@ -70,7 +70,8 @@
   }
   
   .first > label {
-    padding: 0 15px 15px 15px;
+    padding: 12px 15px 15px 15px;
+
   }
   .first > input {
     margin: 0px 15px;
@@ -93,17 +94,31 @@
   .first > input::placeholder {
     color: #a8a4a4;
   }
-  .first > button {
+  .btn1 {
     height: 2.6rem;
     width: 9rem;
     margin-left: 1rem;
     margin-top: 0.8rem;
     font-size: 16px;
     font-weight: 600;
-    /* background-color: #6c6c6f;
-    color: #fff; */
+     background-color: #199FD9;
+    color: #fff; 
     border: none;
     border-radius: 0.2rem;
+    cursor: pointer;
+  }
+  .btn1:disabled {
+    height: 2.6rem;
+    width: 9rem;
+    margin-left: 1rem;
+    margin-top: 0.8rem;
+    font-size: 16px;
+    font-weight: 600;
+     background-color: #bbbbbf;
+    color: #464444; 
+    border: none;
+    border-radius: 0.2rem;
+    cursor: no-drop;
   }
   
   .underline {

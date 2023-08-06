@@ -9,6 +9,7 @@ import Linked from "./components/pages/Linked/link";
 import LogIn from "./components/pages/LogIn/login";
 import Signup from "./components/pages/SignUP/signup";
 import Payment from "./components/pages/Payment/payment";
+import Checkout from "./components/pages/Checkout/Checkout";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="signup" element={<Signup />} />
         </Route>
         <Route path="/payment" element={<Payment />} />
+        <Route path="/checkout" element={<Checkout/>}/>
       </Routes>
     </Router>
   );

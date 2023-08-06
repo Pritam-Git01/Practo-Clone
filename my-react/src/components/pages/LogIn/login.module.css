@@ -20,7 +20,7 @@
   /* transform: scale(1.1,1.1); */
 }
 .form {
-  width: 50%;
+  width: 51.5%;
   height: 100%;
 
 }
@@ -29,7 +29,7 @@
   margin-top: 10%;
   width: 51.6%;
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   flex-direction: column;
   padding: 1.6rem 1.6rem 0 1.6rem;
   border: 1px solid rgb(228, 226, 226);
@@ -43,7 +43,7 @@
 
   color: #787887;
   padding-left: 1rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
  
 }
 .form_container > input:focus {
@@ -55,6 +55,15 @@
 .form_container > label {
   color: #5c5c5f;
   font-size: 1rem;
+
+
+  margin-bottom: 0.5rem;
+}
+.password{
+  color: #5c5c5f;
+  font-size: 1rem;
+  margin-top: 1.2rem;
+
   margin-bottom: 0.5rem;
 }
 .form_container > label > span {
@@ -68,7 +77,8 @@
 .first, .second {
     display: flex;
     align-items: center;
-    margin-top: 0.6rem;
+   
+    /* margin-top: 0.6rem; */
 }
 .first > input[type='checkbox']{
     height: 16px;
@@ -76,20 +86,17 @@
     cursor: pointer;
 
 }
-.first > label {
-    font-size: 12px;
-    color: #5c5c5f;
-    margin-left: 1rem;
-    
-}
-.second > label {
+.first > label,.second > label {
     font-size: 12px;
     color: #5c5c5f;
     margin-left: 1rem;
 
+
+    
 }
+
 .btn_1{
-    margin-left: 4.4rem;
+    margin-left: 3.2rem;
     border: none;
     font-size: 12px;
     color: #14bef0;
@@ -106,7 +113,6 @@
     height: 3rem;
     background-color: #14bef0;
     color: white;
-    margin: 1rem 0;
     border: 1px solid #14bef0;
     font-size: 16px;
     border-radius: 0.4rem;

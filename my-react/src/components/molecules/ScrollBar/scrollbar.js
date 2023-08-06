@@ -26,7 +26,7 @@ const Scrollbar = () => {
   useEffect(() => {
     const concernData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/cdata");
+        const { data } = await axios.get("https://server-practo.onrender.com/cdata");
         setConcernData(data);
         setLoading(false);
       } catch (error) {
@@ -37,10 +37,10 @@ const Scrollbar = () => {
     concernData();
   }, []);
 
-const cunsulting = async (e) => {
+const consulting = async (e) => {
 
   const problem = e.concern.slice(0,4)
-  const {data} = await axios.get(`https://server-practo.onrender.com/${problem}`)
+  const {data} = await axios.get(`https://server-practo.onrender.com/consult-2/${problem}`)
   const details = {
     name:data.doctor,
     price:data.price
@@ -58,7 +58,7 @@ const cunsulting = async (e) => {
       <Text text={text} navigating={handleClick}/>
       <div  className={styles.scroll_container}>
      {loading? (<Loader/>):(
-      concernData.map((item) => <Cards handle={cunsulting} key={item.id} data={item}/>)
+      concernData.map((item) => <Cards handle={consulting} key={item.id} data={item}/>)
      )}
      </div>
     </div>
