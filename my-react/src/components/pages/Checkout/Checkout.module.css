@@ -1,0 +1,147 @@
+.container {
+  background: #f0f0f5;
+  height: 100vh;
+  width: 100vw;
+}
+
+.wraper {
+  min-height: 58.8vh;
+  max-height: 82vh;
+  max-width: 980px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #fff;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.35rem;
+  margin-top: 2rem;
+}
+.first {
+  height: 98%;
+  width: 46%;
+  padding-left: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.5rem;
+}
+.first > h2 {
+  margin-top: 1rem;
+
+  font-size: 26px;
+  padding: 10px 0px;
+
+
+  font-weight: 600;
+}
+.first > div p {
+  font-size: 14px;
+  color: #3e3e41;
+  padding-left: 0.6rem;
+  padding-top: 0.15rem;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+.inputs > label {
+    padding: 0.8rem 0;
+    
+  }
+.inputs > input {
+    height: 2.68rem;
+    width: 16rem;
+    padding: 0.4rem;
+    padding-left: 1rem;
+    font-size: 14px;
+    border: 1px solid #e0e0e5;
+    color: #3a3a3b;
+    outline: #719ece;
+    border-radius: 0.2rem;
+  }
+
+  .inputs > input:focus {
+    border: 1px solid #719ece;
+  }
+  .inputs> input::placeholder {
+    color: #a8a4a4;
+  }
+
+
+.text {
+    display: inline-block;
+    margin: 1rem 0;
+    cursor: pointer;
+    font-size: 15px;
+    color: #199FD9;
+    text-align: left;
+}
+.coupons > input,button {
+    height: 2.2rem;
+    padding-left: 1rem;
+    padding: 0.4rem;
+    font-size: 14px;
+    border: 1px solid #e0e0e5;
+    color: #3a3a3b;
+    outline: #719ece;
+    margin: 1rem 0;
+
+
+}
+form + p {
+    margin: 0.4rem 0;
+    color: #717183;
+}
+.first > h1 {
+    font-weight: 640;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #2d2d32
+
+}
+.payBtn {
+    height: 2.8rem;
+    width: 16rem;
+    margin-top: 0.8rem;
+    font-size: 16px;
+    font-weight: 550;
+    background-color: #199FD9;
+    color: #fff; 
+    border: none;
+    border-radius: 0.2rem;
+  }
+.underline {
+  min-height: 46vh;
+  max-height: 62vh;
+
+  width: 1px;
+  border: 1px solid #98989b;
+  margin: auto;
+  margin-top: 4.2rem;
+}
+.second {
+  height: 98%;
+  width: 46.9%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: auto;
+  /* justify-content: center; */
+  align-items: center;
+}
+.second > img {
+  height: 108px;
+  width: 108px;
+}
+.second > h2 {
+  color: #2d2d32;
+  font-weight: 600;
+  font-size: 18px;
+}
+.second > p {
+  font-size: 12px;
+  color: #767678;
+  font-weight: 450;
+}

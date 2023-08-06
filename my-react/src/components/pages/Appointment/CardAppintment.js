@@ -2,11 +2,14 @@ import React from "react";
 import styles from "./CardAppointment.module.css";
 import { useState, useEffect } from "react";
 import Header from "./Header";
-// import axios from "axios";
-
-// import { queryareaAutosize } from '@mui/material';
+import { useForm } from "react-hook-form";
+import {useNavigate} from "react-router-dom"
 
 const Appointment2 = () => {
+  const navigate = useNavigate()
+  const form = useForm();
+  const { register, handleSubmit, formState } = form;
+  const { isValid, isDirty, errors } = formState;
   const [images, setImages] = useState([
     {
       src: "https://www.practo.com/consult/bundles/cwipage/images/ic-chats-v1.png",
@@ -22,10 +25,8 @@ const Appointment2 = () => {
     },
   ]);
   const [currentImage, setCurrentImage] = useState(0);
-  //   const [query, setQuery] = useState("");
-  //   const [concernData, setConcernData] = useState([]);
-
-  const [enable, setEnable] = useState(false);
+  const FullNameRegex = /^[A-Za-z]+([\s.]+[A-Za-z]+)*$/;
+  const phoneRegex = /^[6-9]\d{9}$/;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,81 +36,97 @@ const Appointment2 = () => {
     return () => clearInterval(interval);
   }, [images.length, currentImage]);
 
-  //   const fetchData = async () => {
-  //     if (query.trim().length >= 2) {
-  //       const { data } = await axios.get(`http://localhost:5000/consult/${query}`);
-  //       setConcernData(data);
-  //       setShowSpecialist(true)
+  const doctorData = JSON.parse(localStorage.getItem("doctorName"));
 
-  //       // console.log(concernData);
-
-  //     }else {
-  //       setConcernData([])
-  //       setShowSpecialist(false)
-  //     }
-  //   };
-
-  //   useEffect(() => {
-  //     const debounce = setTimeout(() => {
-  //       fetchData();
-  //     }, 500);
-  //     return () => {
-  //       clearTimeout(debounce)
-  //     };
-  //   }, [query]);
-
-  // const filteredData = concernData.tags.filter((item) => item.tags.includes(query))
-
-  let doctorData = JSON.parse(localStorage.getItem("doctorName"))
- 
-
+  const onSubmit = (data) => {
+    const detail = {
+      name:data.fullName,
+      phone:data.mobile,
+      fee:doctorData.price
+    }
+    localStorage.setItem("appointDetails", JSON.stringify(detail))
+   navigate("/checkout")
+  }
   return (
     <div className={styles.container}>
       <Header />
       <div className={styles.wraper}>
-        <form className={styles.first}>
+        <form onSubmit={handleSubmit(onSubmit)}
+        noValidate
+         className={styles.first}>
           <h2>Consult with a Doctor</h2>
           <p>Speciality</p>
-          <div  className={styles.specialist}>
-      <div>
-        <input
-          type="radio"
-          checked={true}
-          name="specialist" 
-          id='doctor'
-        />
-        <label style={{ paddingLeft: "0.68rem" }} htmlFor='doctor'>
-         {doctorData.name? doctorData.name:"Doctor Name"}
-          
-        </label>
-      </div>
-      <p>
-      ₹{doctorData.price}
-        
-      </p>
-    </div>
-          
-             {/* {concernData.map((i) => <DoctorsOption key={i.id} data={i}/>)} */}
-
+          <div className={styles.specialist}>
+            <div>
+              <input
+                type="radio"
+                checked={true}
+                name="specialist"
+                id="doctor"
+              />
+              <label style={{ paddingLeft: "0.68rem" }} htmlFor="doctor">
+                {doctorData.name ? doctorData.name : "Doctor Name"}
+              </label>
+            </div>
+            <p>₹{doctorData.price}</p>
+          </div>
 
           <label htmlFor="patient"> Patient's Name</label>
 
           <input
-            name="patient"
+            id="patient"
             type="text"
             placeholder="Enter patient name for prescription"
+            {...register("fullName", {
+              pattern: {
+                value: FullNameRegex,
+                message: "Please fill proper Name",
+              },
+              required: {
+                value: true,
+                message: "Full Name field cannot be empty",
+              },
+            })}
           />
+          <p     style={{
+            fontSize: "10px",
+            color: "rgb(242, 87, 87)",
+            marginLeft: "1.1rem",
+            marginTop: "0.1rem",
+            padding: 0,
+          }} className={styles.error}>{errors.fullName?.message}</p>
 
-       
           <label htmlFor="mobile">Mobile Number</label>
 
-          <input
-            name="mobile"
-            type="number"
-            placeholder="Enter mobile number"
-          />
+          <input id="mobile" type="number" placeholder="Enter mobile number" 
+           {...register("mobile", {
+            pattern: {
+              value: phoneRegex,
+              message: "Please fill proper Mobile Number",
+            },
+            required: {
+              value: true,
+              message: "Mobile Number field cannot be empty",
+            },
+          })}
+        />
+
+        <p
+          style={{
+            fontSize: "10px",
+            color: "rgb(242, 87, 87)",
+            marginLeft: "1.1rem",
+            marginTop: "0.1rem",
+            padding: 0,
+          }}
+        >
+          {errors.mobile?.message}
+        </p>
           <span>A verification code will be sent to this number.</span>
-          <button disabled={enable ? true : false}>Continue</button>
+          <button  type="submit" 
+          disabled={!isDirty || !isValid}
+          className={styles.btn1}
+          >Continue</button>
         </form>
         <div className={styles.underline}></div>
         <div className={styles.second}>
@@ -122,28 +139,3 @@ const Appointment2 = () => {
 };
 
 export default Appointment2;
-
-// const DoctorsOption = ({ data }) => {
-//   const [doctor, setDoctor] = useState("");
-//   const handleRadio = (e) => {
-//     setDoctor(e.target.value);
-//     console.log(doctor);
-//   };
-//   return (
-//     <div key={data.id} className={styles.specialist}>
-//       <div>
-//         <input
-//           type="radio"
-//           value={data.id}
-//           name="specialist"
-//           onChange={handleRadio}
-//           id={data.doctor}
-//         />
-//         <label style={{ paddingLeft: "0.68rem" }} htmlFor={data.doctor}>
-//           {data.doctor}
-//         </label>
-//       </div>
-//       <p>₹{data.price}</p>
-//     </div>
-//   );
-// };

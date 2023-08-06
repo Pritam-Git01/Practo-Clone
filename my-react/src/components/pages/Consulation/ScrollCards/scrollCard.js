@@ -27,7 +27,7 @@ const ScrollCards = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/symptoms");
+        const { data } = await axios.get("https://server-practo.onrender.com/symptoms");
         setSymptomsData(data);
         setLoading(false);
       } catch (error) {
@@ -46,7 +46,7 @@ const ScrollCards = () => {
 
 const handleConsulting = async (e) => {
 
-  const {data} = await axios.get(`https://server-practo.onrender.com/${e.concern}`)
+  const {data} = await axios.get(`https://server-practo.onrender.com/consult-2/${e.concern}`)
   const details = {
     name:data.doctor,
     price:data.price

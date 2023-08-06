@@ -94,17 +94,32 @@
 .first > input::placeholder {
   color: #a8a4a4;
 }
-.first > button {
+.btn{
   height: 2.6rem;
   width: 9rem;
   margin-left: 1rem;
   margin-top: 0.8rem;
   font-size: 16px;
   font-weight: 600;
-  /* background-color: #6c6c6f;
-  color: #fff; */
+   background-color: #199FD9;
+  color: #fff; 
   border: none;
   border-radius: 0.2rem;
+  cursor: pointer;
+}
+.btn:disabled {
+  height: 2.6rem;
+  width: 9rem;
+  margin-left: 1rem;
+  margin-top: 0.8rem;
+  font-size: 16px;
+  font-weight: 600;
+   background-color: #d9dddd;
+  color: #2b2929; 
+  border: none;
+  border-radius: 0.2rem;
+  cursor: no-drop;
+
 }
 
 .underline {

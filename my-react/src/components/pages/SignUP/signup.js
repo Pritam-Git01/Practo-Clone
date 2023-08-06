@@ -8,27 +8,42 @@ import { Select } from "@mui/material";
 const Signup = () => {
   const form = useForm();
   const { register, control, handleSubmit, formState } = form;
-  const { errors } = formState;
+  const { errors, isValid } = formState;
   const FullNameRegex = /^[A-Za-z]+([\s.]+[A-Za-z]+)*$/;
   const phoneRegex = /^[6-9]\d{9}$/;
   const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$&#])(?=.*\d).{8,}$/;
 
-  const handleSubmition = async (data) => {
-   try{
-    const response = await axios.post("https://server-practo.onrender.com/users", {
-      name:data.fullName,
-      phone:data.mobile,
-      password:data.password
-
-    })
-    console.log("posted data", response.data)
-
-
-   } 
-   catch(err){
-    console.log(err)
-   }
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.get(
+        `https://server-practo.onrender.com/users/${data.mobile}`
+      );
+        console.log("API Reference", response, response.data)
+      if (response.data) {
+        alert("You are already Registered!!");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    try {
+      const response = await axios.post(
+        "https://server-practo.onrender.com/users",
+        {
+          name: data.fullName,
+          phone: data.mobile,
+          password: data.password,
+        }
+      );
+      console.log("posted data", response.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
+
+  // const onError = (errors) => {
+  //   console.log("error", errors);
+  // };
+
   return (
     <div className={styles.wraper}>
       <div className={styles.img_container}>
@@ -39,8 +54,9 @@ const Signup = () => {
       </div>
       <div className={styles.form}>
         <form
-          onSubmit={handleSubmit(handleSubmition)}
+          onSubmit={handleSubmit(onSubmit)}
           className={styles.form_containers}
+          noValidate
         >
           <h2
             style={{ fontWeight: 600, padding: "0.5rem 0", color: "#5c5c5f" }}
@@ -54,7 +70,6 @@ const Signup = () => {
               id="fullName"
               placeholder="Full Name"
               {...register("fullName", {
-                valueAsNumber:true,
                 pattern: {
                   value: FullNameRegex,
                   message: "Please fill proper Name",
@@ -70,29 +85,38 @@ const Signup = () => {
           <div className={styles.form_container}>
             <label htmlFor="mobile">Mobile Number</label>
             <div className={styles.phone_inputs}>
-            <Select value="+91"
-            sx={{height:"2.2rem", paddingBottom:"0.15rem", width:"6.8rem", marginRight:"1.2rem"}}
-            >
-             <option value="+91">+91 IND</option>
-            </Select>
-            <input style={{width:"13.35rem"}}
-              type="text"
-              id="mobile"
-              placeholder="Mobile Number"
-              {...register("mobile", {
-                pattern: {
-                  value: phoneRegex,
+              <Select
+                value="+91"
+                sx={{
+                  height: "2.2rem",
+                  paddingBottom: "0.15rem",
+                  width: "6.8rem",
+                  marginRight: "1.2rem",
+                }}
+              >
+                <option value="+91">+91 IND</option>
+              </Select>
+              <input
+                style={{ width: "13.35rem" }}
+                type="text"
+                id="mobile"
+                placeholder="Mobile Number"
+                {...register("mobile", {
+                  pattern: {
+                    value: phoneRegex,
 
-                  message: "Please fill proper Mobile Number",
-                },
-                required: {
-                  value: true,
-                  message: "Mobile Number field cannot be empty",
-                },
-              })}
-            />
+                    message: "Please fill proper Mobile Number",
+                  },
+                  required: {
+                    value: true,
+                    message: "Mobile Number field cannot be empty",
+                  },
+                })}
+              />
             </div>
-            <p className={styles.error}>{errors.fullName?.message}</p>
+            <p style={{ marginLeft: "8rem" }} className={styles.error}>
+              {errors.mobile?.message}
+            </p>
           </div>
           <div className={styles.form_container}>
             <label htmlFor="password">Create Password</label>
@@ -112,10 +136,10 @@ const Signup = () => {
                 },
               })}
             />
-            <p className={styles.error}>{errors.fullName?.message}</p>
+            <p className={styles.error}>{errors.password?.message}</p>
           </div>
           <div className={styles.second}>
-            <input type="checkbox"  id="t&c" />
+            <input type="checkbox" id="t&c" />
             <label htmlFor="t&c">
               Recieve relevant offers and promotional communication from practo
             </label>
@@ -123,9 +147,7 @@ const Signup = () => {
           <p className={styles.terms}>
             By, signing up, i agree to <span>terms</span>
           </p>
-          <button type="submit" className={styles.otp_btn}>
-            Get OTP
-          </button>
+          <button className={styles.otp_btn}>Register</button>
         </form>
         <DevTool control={control} />
       </div>
