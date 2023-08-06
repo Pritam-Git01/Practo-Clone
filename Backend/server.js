@@ -194,8 +194,24 @@ app.put("/consult", async function(req,res){
 })
 
 app.post("/users", async function(req,res){
+  let find = await userDetails.findOne({phone:{$eq: req.body.phone}})
+
+  console.log(find, req.body.phone)
+  if(find === null){
     let data = await userDetails.create(req.body)
+    const temp =  {
+      status:200,
+      response:data
+        }
     return res.send(data)
+  } else {
+ const temp =  {
+  status:404,
+  response:null
+    }
+    return res.send(temp)
+  }
+    
 })
 
 app.get("/users", async function(req,res){
