@@ -28,7 +28,7 @@ const Doctors = () => {
   if (error) return <Error message="Error while fetching doctors data" />;
   return <div className={styles.wraper}>
     {loading? (<Loader/>):(
-      doctors.map((item) => <DoctorsCard data={item}/>)
+      doctors.map((item) => <DoctorsCard key={item.id} data={item}/>)
     )}
   </div>;
 };

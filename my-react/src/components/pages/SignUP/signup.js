@@ -1,44 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./signup.module.css";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import axios from "axios";
 import { Select } from "@mui/material";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { showingIcon } from "../../Redux/Feature/PractoSlice";
 
 const Signup = () => {
+  const dispatch =  useDispatch()
+  const navigate = useNavigate()
   const form = useForm();
-  const { register, control, handleSubmit, formState } = form;
-  const { errors, isValid } = formState;
+  const { register, control, handleSubmit, reset,formState } = form;
+  const { errors, isSubmitting, isSubmitSuccessful} = formState;
   const FullNameRegex = /^[A-Za-z]+([\s.]+[A-Za-z]+)*$/;
   const phoneRegex = /^[6-9]\d{9}$/;
   const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$&#])(?=.*\d).{8,}$/;
 
   const onSubmit = async (data) => {
-    try {
-      const response = await axios.get(
-        `https://server-practo.onrender.com/users/${data.mobile}`
-      );
-        console.log("API Reference", response, response.data)
-      if (response.data) {
-        alert("You are already Registered!!");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    const signupDetails = {
+      name: data.fullName,
+      phone: data.mobile,
+      password: data.password,
+    };
     try {
       const response = await axios.post(
-        "https://server-practo.onrender.com/users",
-        {
-          name: data.fullName,
-          phone: data.mobile,
-          password: data.password,
+        "https://server-practo.onrender.com/users", signupDetails );
+        if(response.data.status === 404){
+          alert("Mobile number is already registered!!")
+        } else {
+          alert("Thank You, Registration Successfull!!")
+          localStorage.setItem("regPhone", JSON.stringify(data.mobile))
+          dispatch(showingIcon(true))
+          navigate("/")
         }
-      );
-      console.log("posted data", response.data);
     } catch (err) {
       console.log(err);
     }
   };
+  useEffect(() => {
+    if(isSubmitSuccessful){
+      reset()
+    }
+  },[isSubmitSuccessful,reset])
 
   // const onError = (errors) => {
   //   console.log("error", errors);

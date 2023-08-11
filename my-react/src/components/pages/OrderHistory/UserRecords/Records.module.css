@@ -1,0 +1,19 @@
+.wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wraper > img {
+  height: 6rem;
+  width: 6.2rem;
+}
+.wraper > p {
+  color: rgb(65, 65, 70);
+  line-height: 20px;
+  text-align: center;
+  padding-top: 1rem;
+}

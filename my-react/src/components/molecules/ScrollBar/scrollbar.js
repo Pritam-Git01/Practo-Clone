@@ -58,7 +58,7 @@ const consulting = async (e) => {
       <Text text={text} navigating={handleClick}/>
       <div  className={styles.scroll_container}>
      {loading? (<Loader/>):(
-      concernData.map((item) => <Cards handle={consulting} key={item.id} data={item}/>)
+      concernData.map((item) => <Cards handle={consulting} key={item._id} data={item}/>)
      )}
      </div>
     </div>
