@@ -5,7 +5,7 @@ import Avatar from "@mui/material/Avatar"
 const DoctorsCard = ({data}) => {
   
   return (
-    <div className={styles.wraper}>
+    <div key={data.id} className={styles.wraper}>
         <Avatar sx={{height:50,width:50}} alt='doctors-image' src={data.image} />
         <div className={styles.text}>
             <h4>{data.name}</h4>

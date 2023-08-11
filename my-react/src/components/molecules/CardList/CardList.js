@@ -30,7 +30,7 @@ const CardList = () => {
       {loading ? (
         <Loader />
       ) : (
-        featureData.map((item) => <Card key={item.id} data={item} />)
+        featureData.map((item) => <Card key={item._id} data={item} />)
       )}
     </div>
   );

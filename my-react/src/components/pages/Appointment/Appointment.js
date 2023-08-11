@@ -31,7 +31,7 @@ const Appointment = () => {
   const [query, setQuery] = useState("");
   const [concernData, setConcernData] = useState([]);
   const [showSpecialist, setShowSpecialist] = useState(false);
-  const[selectedPrice,setSelectedPrice] = useState("")
+  const[selected,setSelected] = useState({})
   const navigate = useNavigate()
 
 
@@ -71,7 +71,8 @@ const Appointment = () => {
   const onSubmit = (data) => {
     const detail = {
       phone:data.mobile,
-      fee:+selectedPrice
+      fee:Number(selected.price),
+      specialist:selected.specialist
     }
    localStorage.setItem("appointDetails", JSON.stringify(detail))
    navigate("/checkout")
@@ -100,7 +101,7 @@ const Appointment = () => {
           </p>
 
           {concernData.map((i) => (
-            <DoctorsOption key={i.id} data={i}  setSelectedPrice={setSelectedPrice}/>
+            <DoctorsOption key={i.id} data={i}  setSelected={setSelected}/>
           ))}
 
           <label htmlFor="mobile">Mobile Number</label>
@@ -148,9 +149,9 @@ const Appointment = () => {
 
 export default Appointment;
 
-const DoctorsOption = ({ data,setSelectedPrice }) => {
+const DoctorsOption = ({ data,setSelected }) => {
   const handle = (e) => {
-    setSelectedPrice(e.target.value)
+    setSelected(e.target.value)
   }
 
 
@@ -159,7 +160,7 @@ const DoctorsOption = ({ data,setSelectedPrice }) => {
       <div>
         <input
           type="radio"
-          value={data.price}
+          value={{price:data.price, specialist:data.doctor}}
           name="specialist"
           onChange={handle}
           id={data.doctor}

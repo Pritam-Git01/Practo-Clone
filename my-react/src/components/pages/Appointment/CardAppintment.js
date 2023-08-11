@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import {useNavigate} from "react-router-dom"
 
 const Appointment2 = () => {
+  const[doctorsData,setDoctorsData] = useState("")
   const navigate = useNavigate()
   const form = useForm();
   const { register, handleSubmit, formState } = form;
@@ -36,13 +37,22 @@ const Appointment2 = () => {
     return () => clearInterval(interval);
   }, [images.length, currentImage]);
 
+useEffect(() => {
   const doctorData = JSON.parse(localStorage.getItem("doctorName"));
+  if(doctorData === null){
+    navigate("/")
+  } else {
+    setDoctorsData(doctorData)
+  }
+},[])
 
   const onSubmit = (data) => {
     const detail = {
       name:data.fullName,
       phone:data.mobile,
-      fee:doctorData.price
+      fee:doctorsData.price,
+      specialist:doctorsData.name
+
     }
     localStorage.setItem("appointDetails", JSON.stringify(detail))
    navigate("/checkout")
@@ -65,10 +75,10 @@ const Appointment2 = () => {
                 id="doctor"
               />
               <label style={{ paddingLeft: "0.68rem" }} htmlFor="doctor">
-                {doctorData.name ? doctorData.name : "Doctor Name"}
+                {doctorsData.name ? doctorsData.name : "Doctor Name"}
               </label>
             </div>
-            <p>₹{doctorData.price}</p>
+            <p>₹{doctorsData.price}</p>
           </div>
 
           <label htmlFor="patient"> Patient's Name</label>

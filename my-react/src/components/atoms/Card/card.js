@@ -2,6 +2,7 @@ import React from 'react';
 import styles from  "./card.module.css"
 
 const Card = ({data}) => {
+  console.log(data._id)
   return (
     <div  className={styles.container}>
      <div className={styles.img_container}> 

@@ -8,6 +8,7 @@ border-bottom: 2px solid #ececf5;
 }
 .nav_wraper {
   display: flex;
+ 
 }
 .logo {
   margin: 1.4em 4.2em 1em 5em;
@@ -54,6 +55,11 @@ border-bottom: 2px solid #ececf5;
 .nav_items_second .btn_1 {
   margin-left: 1.8em;
 }
+.userName {
+  font-size: 15px;
+  color: #40404a;
+  font-weight: 500;
+}
 .icon {
   font-size: 1.6rem;
   display: inline-block;
@@ -83,6 +89,6 @@ border-bottom: 2px solid #ececf5;
   border: 1px solid #d3d3d3;
 }
 .btn:hover {
-  color: rgb(63, 211, 196);
-  border-color: rgb(63, 211, 196);
+  color: #14bef0;
+  border-color: #14bef0;
 }

@@ -8,6 +8,7 @@ import Loader from "../../atoms/Loader/Loader";
 const Checkout = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [userBookingData, setUserBookingData] = useState({});
 
   const [show, setShow] = useState(false);
   const [coupon, setCoupon] = useState("");
@@ -16,16 +17,15 @@ const Checkout = () => {
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
 
-  const { name, phone, fee } = JSON.parse(
-    localStorage.getItem("appointDetails")
-  );
-
+  useEffect(() => {
+    const userDetails = JSON.parse(localStorage.getItem("appointDetails"));
+    setUserBookingData(userDetails);
+  }, []);
   const FullNameRegex = /^[A-Za-z]+([\s.]+[A-Za-z]+)*$/;
   const tipImg =
     "https://www.practo.com/consult/bundles/cwipage/images/tip-icon-v1.png";
   const tabImg =
     "https://www.practo.com/consult/bundles/cwipage/images/phone-icon.png";
-
 
   function loadRazorpay() {
     const script = document.createElement("script");
@@ -39,7 +39,7 @@ const Checkout = () => {
         const result = await axios.post(
           "https://server-practo.onrender.com/create-order",
           {
-            amount: fee * 100,
+            amount: userBookingData.fee * 100,
           }
         );
         const { amount, id: order_id, currency } = result.data;
@@ -66,18 +66,37 @@ const Checkout = () => {
               }
             );
             alert(result.data.msg);
+            const isPaid = result.status === 200 ? true : false;
+            try {
+              const postResponse = axios.post(
+                "https://server-practo.onrender.com/booking-data",
+                {
+                  isPaid,
+                  username: userBookingData.name,
+                  phone: userBookingData.phone,
+                  speciality: userBookingData.specialitist,
+                  amount: amount,
+                  razorpayPaymentId: response.razorpay_payment_id,
+                  razorpayOrderId: response.razorpay_order_id,
+                }
+              );
+              console.log(postResponse);
+            } catch (err) {
+              console.log(err);
+            }
+
             navigate("/");
           },
           prefill: {
-            name: { name },
+            name: userBookingData.name,
             email: "test@example.com",
-            contact: { phone },
+            contact: userBookingData.phone,
           },
           notes: {
             address: "example address",
           },
           theme: {
-            color: "#80c0f0",
+            color: "#459de0",
           },
         };
         setLoading(false);
@@ -113,7 +132,7 @@ const Checkout = () => {
               type="text"
               id="patient-name"
               spellCheck="false"
-              defaultValue={name ? name : ""}
+              defaultValue={userBookingData.name ? userBookingData.name : ""}
               placeholder="Enter Patient's name"
               {...register("patient", {
                 pattern: {
@@ -155,7 +174,7 @@ const Checkout = () => {
             )}
 
             <p>Final fee</p>
-            <h1>₹{fee ? fee : 499}</h1>
+            <h1>₹{userBookingData.fee ? userBookingData.fee : 499}</h1>
 
             <button className={styles.payBtn} type="submit">
               Continue to payment

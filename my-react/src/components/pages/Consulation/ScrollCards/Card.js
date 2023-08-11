@@ -5,7 +5,7 @@ import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRig
 
 const Card = ({data,handle}) => {
   return (
-    <div onClick={() => handle(data)} className={styles.wraper}>
+    <div key={data.id} onClick={() => handle(data)} className={styles.wraper}>
          <img src={data.image} alt='dentist'/> 
         <p>{data.concern}</p>
         <p>₹{data.price}</p>
