@@ -9,7 +9,7 @@ const Checkout = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [userBookingData, setUserBookingData] = useState({});
-
+  const[ptName, setPtName] = useState("")
   const [show, setShow] = useState(false);
   const [coupon, setCoupon] = useState("");
 
@@ -19,15 +19,21 @@ const Checkout = () => {
 
   useEffect(() => {
     const userDetails = JSON.parse(localStorage.getItem("appointDetails"));
+    if(!userDetails){
+      navigate("/")
+    } else {
     setUserBookingData(userDetails);
-  }, []);
+    setPtName(userDetails.name)
+    }
+  }, [navigate]);
   const FullNameRegex = /^[A-Za-z]+([\s.]+[A-Za-z]+)*$/;
   const tipImg =
     "https://www.practo.com/consult/bundles/cwipage/images/tip-icon-v1.png";
   const tabImg =
     "https://www.practo.com/consult/bundles/cwipage/images/phone-icon.png";
 
-  function loadRazorpay() {
+  function loadRazorpay(data) {
+    setPtName(data.patient)
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
     script.onerror = () => {
@@ -131,8 +137,8 @@ const Checkout = () => {
             <input
               type="text"
               id="patient-name"
-              spellCheck="false"
-              defaultValue={userBookingData.name ? userBookingData.name : ""}
+              spellCheck= "false"
+              value={ptName}
               placeholder="Enter Patient's name"
               {...register("patient", {
                 pattern: {

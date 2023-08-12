@@ -22,15 +22,28 @@ const LogIn = () => {
     const response = await axios.get(
       `https://server-practo.onrender.com/users/${data.mobile}`
     );
-    if (response.data.password === data.password) {
-      alert("You are logged In, Successfully");
-      localStorage.setItem("regPhone", JSON.stringify(data.mobile))
-      dispatch(showingIcon(true))
-        naviagte("/")
-    } else if(response.data.password !== data.password) {
-      alert("Wrong Password!!"); 
-    }else {
+    // if (response !== null && response.data.password === data.password) {
+    //   alert("You are logged In, Successfully");
+    //   localStorage.setItem("regPhone", JSON.stringify(data.mobile))
+    //   localStorage.setItem("userAuth", true)
+    //   dispatch(showingIcon(true))
+    //     naviagte("/")
+    // } else if( response !== null && response.data.password !== data.password) {
+    //   alert("Wrong Password!!"); 
+    // }else {
+    //   alert("You are not registerd with us, Please Register!!")
+    // }
+    if(response.data === null){
       alert("You are not registerd with us, Please Register!!")
+
+    } else if (response.data.password === data.password){
+      alert("You are logged In, Successfully");
+        localStorage.setItem("regPhone", JSON.stringify(data.mobile))
+        localStorage.setItem("userAuth", true)
+        dispatch(showingIcon(true))
+          naviagte("/")
+    } else {
+      alert("Wrong Password!!"); 
     }
   };
   useEffect(() => {

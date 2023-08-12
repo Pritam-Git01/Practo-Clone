@@ -9,11 +9,11 @@ import { useDispatch } from "react-redux";
 import { showingIcon } from "../../Redux/Feature/PractoSlice";
 
 const Signup = () => {
-  const dispatch =  useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const form = useForm();
-  const { register, control, handleSubmit, reset,formState } = form;
-  const { errors, isSubmitting, isSubmitSuccessful} = formState;
+  const { register, control, handleSubmit, reset, formState } = form;
+  const { errors, isSubmitting, isSubmitSuccessful } = formState;
   const FullNameRegex = /^[A-Za-z]+([\s.]+[A-Za-z]+)*$/;
   const phoneRegex = /^[6-9]\d{9}$/;
   const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$&#])(?=.*\d).{8,}$/;
@@ -26,24 +26,27 @@ const Signup = () => {
     };
     try {
       const response = await axios.post(
-        "https://server-practo.onrender.com/users", signupDetails );
-        if(response.data.status === 404){
-          alert("Mobile number is already registered!!")
-        } else {
-          alert("Thank You, Registration Successfull!!")
-          localStorage.setItem("regPhone", JSON.stringify(data.mobile))
-          dispatch(showingIcon(true))
-          navigate("/")
-        }
+        "https://server-practo.onrender.com/users",
+        signupDetails
+      );
+      if (response.data.status === 404) {
+        alert("Mobile number is already registered!!");
+      } else {
+        alert("Thank You, Registration Successfull!!");
+        localStorage.setItem("regPhone", JSON.stringify(data.mobile));
+        localStorage.setItem("userAuth", true);
+        dispatch(showingIcon(true));
+        navigate("/");
+      }
     } catch (err) {
       console.log(err);
     }
   };
   useEffect(() => {
-    if(isSubmitSuccessful){
-      reset()
+    if (isSubmitSuccessful) {
+      reset();
     }
-  },[isSubmitSuccessful,reset])
+  }, [isSubmitSuccessful, reset]);
 
   // const onError = (errors) => {
   //   console.log("error", errors);

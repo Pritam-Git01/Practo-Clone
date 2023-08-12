@@ -27,8 +27,31 @@
 }
 .orders > header {
     height: 12%;
+    display: flex;
+    align-items: center;
+    padding-left: 1.14rem;
     border-bottom: 1.5px solid rgb(210, 210, 220);
     
+}
+.orders > header > h2 {
+    font-size: 18px;
+    color: rgb(65,65,70);
+    line-height: 30px;
+    font-weight: 600;
+}
+.icon {
+    font-size: 2.68rem;
+    margin-left: 9.1rem;
+    color: #fff;
+    background: gray;
+}
+.icon + div {
+    margin-left: 1.2rem;
+}
+.icon + div > p{
+    font-size: 12px;
+    color: rgb(65,65,70);
+    line-height: 15px;
 }
 .details {
     display: flex;
@@ -46,4 +69,11 @@
     width: 83.2%;
     height: 100%;
     
+}
+
+
+.user > p{
+    color: rgb(65,65,70);
+    font-size: 14px;
+    line-height: 20px;
 }
