@@ -5,11 +5,12 @@ import Header from "./Header";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Error from "../../atoms/Error/Error";
 
 const Appointment = () => {
   const form = useForm();
   const { register, handleSubmit, formState } = form;
-  const { errors, isDirty, isValid } = formState;
+  const { errors } = formState;
 
   const phoneRegex = /^[6-9]\d{9}$/;
   const [images, setImages] = useState([
@@ -31,6 +32,7 @@ const Appointment = () => {
   const [concernData, setConcernData] = useState([]);
   const [showSpecialist, setShowSpecialist] = useState(false);
   const [selected, setSelected] = useState({});
+  // const[error,setError] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const Appointment = () => {
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [ currentImage]);
+  }, [images.length, currentImage]);
 
   const fetchData = async () => {
     if (query.trim().length >= 3) {
@@ -48,8 +50,6 @@ const Appointment = () => {
       );
       setConcernData(data);
       setShowSpecialist(true);
-
-      // console.log(concernData);
     } else {
       setConcernData([]);
       setShowSpecialist(false);
@@ -63,7 +63,7 @@ const Appointment = () => {
     return () => {
       clearTimeout(debounce);
     };
-  }, []);
+  }, [query]);
 
   const onSubmit = (data) => {
     const detail = {
@@ -74,7 +74,9 @@ const Appointment = () => {
     localStorage.setItem("appointDetails", JSON.stringify(detail));
     navigate("/checkout");
   };
-
+  // if(error) {
+  //   return(<Error message="OOPs! Check Your Internet Connection"/>)
+  // }
   return (
     <div className={styles.container}>
       <Header />
@@ -100,7 +102,7 @@ const Appointment = () => {
           </p>
 
           {concernData.map((i) => (
-            <DoctorsOption key={i.id} data={i} setSelected={setSelected} />
+            <DoctorsOption key={i._id} data={i} setSelected={setSelected} />
           ))}
 
           <label htmlFor="mobile">Mobile Number</label>
@@ -118,6 +120,10 @@ const Appointment = () => {
                 value: true,
                 message: "Mobile Number field cannot be empty",
               },
+              validate: async (value) => {
+                const {data} = await axios.get(`https://server-practo.onrender.com/users/${value}`)
+                return data || "You are not registerd with us, please Registered First!!"
+              }
             })}
           />
 
@@ -136,7 +142,6 @@ const Appointment = () => {
           <button
             className={styles.btn}
             type="submit"
-            disabled={!isDirty || !isValid}
           >
             Continue
           </button>
@@ -154,18 +159,21 @@ const Appointment = () => {
 export default Appointment;
 
 const DoctorsOption = ({ data, setSelected }) => {
-  const handle = (e) => {
-    setSelected(e.target.value);
+  const handle = (selectedData) => {
+    console.log(selectedData);
+    setSelected(selectedData);
   };
 
   return (
-    <div key={data.id} className={styles.specialist}>
+    <div className={styles.specialist}>
       <div>
         <input
           type="radio"
-          value={{ price: data.price, specialist: data.doctor }}
+          value={data}
           name="specialist"
-          onChange={handle}
+          onChange={() =>
+            handle({ price: data.price, specialist: data.doctor })
+          }
           id={data.doctor}
         />
         <label style={{ paddingLeft: "0.68rem" }} htmlFor={data.doctor}>

@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+button {
+  cursor: pointer;
+}
 :root {
   --bl-color1: #b290fc;
   --bl-color2: #ececec;

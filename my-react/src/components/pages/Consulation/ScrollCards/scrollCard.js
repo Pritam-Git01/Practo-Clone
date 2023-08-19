@@ -42,8 +42,6 @@ const ScrollCards = () => {
     navigate("/consulting")
   }
 
-
-
 const handleConsulting = async (e) => {
 
   const {data} = await axios.get(`https://server-practo.onrender.com/consult-2/${e.concern}`)

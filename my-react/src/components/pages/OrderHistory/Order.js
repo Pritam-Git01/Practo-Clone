@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React,{useEffect, useState} from "react";
 import styles from "./Order.module.css";
 import Card from "../OrderHistory/Card/Card";
-import { v4 as uuid } from "uuid";
 import { ImUser } from "react-icons/im";
+import axios from "axios";
 import { useNavigate, Link, Outlet } from "react-router-dom";
 import Navbar from "../../molecules/Navbar/navbar";
 import { showingIcon } from "../../Redux/Feature/PractoSlice";
@@ -10,46 +10,48 @@ import {useDispatch} from "react-redux"
 
 const Order = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const[userData,setUserData] = useState({})
+  const[style,setStyle]= useState(2)
   const sidebarData = [
     {
-      id: uuid(),
+      id: 1,
       route: "records",
       text: "Medical Records",
     },
     {
-      id: uuid(),
+      id: 2,
       route: "appointments",
       text: "Appointments",
     },
     {
-      id: uuid(),
+      id: 3,
       route: "tests",
       text: "Lab Tests",
     },
 
     {
-      id: uuid(),
+      id: 4,
       route: "medicines",
       text: "Medicines Orders",
     },
     {
-      id: uuid(),
+      id: 5,
       route: "consults",
       text: "Online Consultations",
     },
     {
-      id: uuid(),
+      id: 6,
       route: "articles",
       text: "Articles",
     },
     {
-      id: uuid(),
+      id: 7,
       route: "feedback",
       text: "Feedback",
     },
     {
-      id: uuid(),
+      id: 8,
       route: "payment",
       text: "Payments",
     },
@@ -67,6 +69,10 @@ const Order = () => {
     top: "0.6rem",
   };
 
+  const handleClick = (value) => {
+    console.log(value)
+    setStyle(value)
+  }
 
 const handleLogout2  = () => {
   localStorage.removeItem("userAuth")
@@ -75,9 +81,22 @@ const handleLogout2  = () => {
   navigate("/")
 
 }
-  // useEffect(() => {
-  //   navigate("appointments");
-  // }, []);
+
+useEffect(() => {
+  const phone = JSON.parse(localStorage.getItem("regPhone"))
+  const fetchData = async () => {
+    try{
+    const {data} = await axios.get(`https://server-practo.onrender.com/users/${phone}`)
+    setUserData(data)
+    }catch(err){
+      console.log(err)
+    }
+
+  }
+  fetchData()
+
+},[])
+
 
   return (
     <div className={styles.wraper}>
@@ -104,9 +123,9 @@ const handleLogout2  = () => {
                 color: "rgb(65,65,70)",
               }}
             >
-              Pritam Kumar Yadav
+              {userData.name}
             </p>
-            <p>+919162788251</p>
+            <p>+91{userData.phone}</p>
           </div>
         </header>
         <article className={styles.details}>
@@ -117,11 +136,12 @@ const handleLogout2  = () => {
                 to={item.route}
                 key={item.id}
               >
-                <Card data={item} />
+                <Card key={item.id} styling = {style} handle={handleClick} data={item} />
               </Link>
             ))}
           </aside>
-          <Outlet className={styles.appointDetails} />
+          <Outlet className={styles.appointDetails}/>
+          
         </article>
       </section>
     </div>

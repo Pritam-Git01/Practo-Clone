@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import styles from "../LogIn/login.module.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import CircularProgress from '@mui/material/CircularProgress';
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { showingIcon } from "../../Redux/Feature/PractoSlice";
@@ -10,6 +11,7 @@ import { useDispatch } from "react-redux";
 const LogIn = () => {
   const dispatch  = useDispatch()
   const naviagte = useNavigate();
+  const[loading,setLoading] = useState(false)
   const form = useForm();
 
   const { register, handleSubmit,reset, formState } = form;
@@ -18,7 +20,7 @@ const LogIn = () => {
   const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$&#])(?=.*\d).{8,}$/;
 
   const onSubmit = async (data) => {
-    console.log(data);
+    setLoading(true)
     const response = await axios.get(
       `https://server-practo.onrender.com/users/${data.mobile}`
     );
@@ -34,10 +36,15 @@ const LogIn = () => {
     //   alert("You are not registerd with us, Please Register!!")
     // }
     if(response.data === null){
+    
       alert("You are not registerd with us, Please Register!!")
+      setLoading(false)
 
     } else if (response.data.password === data.password){
+      
       alert("You are logged In, Successfully");
+      setLoading(false)
+    
         localStorage.setItem("regPhone", JSON.stringify(data.mobile))
         localStorage.setItem("userAuth", true)
         dispatch(showingIcon(true))
@@ -133,7 +140,9 @@ const LogIn = () => {
             <input type="checkbox" id="otp" />
             <label htmlFor="otp">Login with OTP instead of password</label>
           </div>
+        
           <button type="submit" className={styles.login_btn}>
+            {loading && <CircularProgress size={28} sx={{color:'white', position:"absolute", left:"6.5rem", top:"0.6rem"}}/>}
             Login
           </button>
         </form>

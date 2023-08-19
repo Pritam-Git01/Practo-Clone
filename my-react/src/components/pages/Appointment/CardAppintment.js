@@ -3,14 +3,15 @@ import styles from "./CardAppointment.module.css";
 import { useState, useEffect } from "react";
 import Header from "./Header";
 import { useForm } from "react-hook-form";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const Appointment2 = () => {
   const[doctorsData,setDoctorsData] = useState("")
   const navigate = useNavigate()
-  const form = useForm();
+  const form = useForm({mode:'onBlur'});
   const { register, handleSubmit, formState } = form;
-  const { isValid, isDirty, errors } = formState;
+  const {  errors } = formState;
   const [images, setImages] = useState([
     {
       src: "https://www.practo.com/consult/bundles/cwipage/images/ic-chats-v1.png",
@@ -118,6 +119,10 @@ useEffect(() => {
               value: true,
               message: "Mobile Number field cannot be empty",
             },
+            validate: async (value) => {
+              const {data} = await axios.get(`https://server-practo.onrender.com/users/${value}`)
+              return data || "You are not registerd with us, please Registered First!!"
+            }
           })}
         />
 
@@ -134,7 +139,6 @@ useEffect(() => {
         </p>
           <span>A verification code will be sent to this number.</span>
           <button  type="submit" 
-          disabled={!isDirty || !isValid}
           className={styles.btn1}
           >Continue</button>
         </form>

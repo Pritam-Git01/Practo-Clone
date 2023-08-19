@@ -8,12 +8,11 @@ import Appointment2 from "./components/pages/Appointment/CardAppintment";
 import Linked from "./components/pages/Linked/link";
 import LogIn from "./components/pages/LogIn/login";
 import Signup from "./components/pages/SignUP/signup";
-
 import Checkout from "./components/pages/Checkout/Checkout";
 import Order from "./components/pages/OrderHistory/Order";
 import Records from "./components/pages/OrderHistory/UserRecords/Records";
-import Appoint from "./components/pages/OrderHistory/AppointHistory/Appoint";
 import Protected from "./components/ProtectedRoute/Protected";
+import AppointHistory from "./components/pages/OrderHistory/AppointHistory/Appoint";
 
 
 
@@ -30,10 +29,10 @@ function App() {
         <Route path="signup" element={<Signup />} />
         </Route>
        
-        <Route path="/checkout" element={<Checkout/>}/>
+        <Route path="/checkout" element={<Protected Component={Checkout}/>}/>
         <Route path="/order-history/" element={<Protected Component={Order}/>}>
           <Route path="records" element={<Records/>}/>
-          <Route path="appointments" element={<Appoint/>}/>
+          <Route path="appointments" element={<AppointHistory/>}/>
           <Route path="tests" element={<Records/>}/>
           <Route path="medicines" element={<Records/>}/>
           <Route path="consults" element={<Records/>}/>
