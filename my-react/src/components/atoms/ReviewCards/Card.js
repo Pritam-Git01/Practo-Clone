@@ -12,7 +12,7 @@ const Card = ({data}) => {
       </p>
       {/* <AiOutlineRight className={styles.right}/> */}
       <span className={styles.indicators}>
-        <button key={data.id}></button>
+        <button key={data._id}></button>
       </span>
     </div>
   );

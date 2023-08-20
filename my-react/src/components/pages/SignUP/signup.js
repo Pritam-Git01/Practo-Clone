@@ -1,24 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./signup.module.css";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
+
 import axios from "axios";
 import { Select } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { showingIcon } from "../../Redux/Feature/PractoSlice";
 
 const Signup = () => {
-  const dispatch =  useDispatch()
-  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const form = useForm();
-  const { register, control, handleSubmit, reset,formState } = form;
-  const { errors, isSubmitting, isSubmitSuccessful} = formState;
+  const { register, handleSubmit, reset, formState } = form;
+  const { errors, isSubmitSuccessful } = formState;
   const FullNameRegex = /^[A-Za-z]+([\s.]+[A-Za-z]+)*$/;
   const phoneRegex = /^[6-9]\d{9}$/;
   const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[@$&#])(?=.*\d).{8,}$/;
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const signupDetails = {
       name: data.fullName,
       phone: data.mobile,
@@ -26,28 +29,28 @@ const Signup = () => {
     };
     try {
       const response = await axios.post(
-        "https://server-practo.onrender.com/users", signupDetails );
-        if(response.data.status === 404){
-          alert("Mobile number is already registered!!")
-        } else {
-          alert("Thank You, Registration Successfull!!")
-          localStorage.setItem("regPhone", JSON.stringify(data.mobile))
-          dispatch(showingIcon(true))
-          navigate("/")
-        }
+        "https://server-practo.onrender.com/users",
+        signupDetails
+      );
+      if (response.data.status === 404) {
+        alert("Mobile number is already registered!!");
+        setLoading(false);
+      } else {
+        alert("Thank You, Registration Successfull!!");
+        localStorage.setItem("regPhone", JSON.stringify(data.mobile));
+        localStorage.setItem("userAuth", true);
+        dispatch(showingIcon(true));
+        navigate("/");
+      }
     } catch (err) {
       console.log(err);
     }
   };
   useEffect(() => {
-    if(isSubmitSuccessful){
-      reset()
+    if (isSubmitSuccessful) {
+      reset();
     }
-  },[isSubmitSuccessful,reset])
-
-  // const onError = (errors) => {
-  //   console.log("error", errors);
-  // };
+  }, [isSubmitSuccessful, reset]);
 
   return (
     <div className={styles.wraper}>
@@ -93,6 +96,7 @@ const Signup = () => {
               <Select
                 value="+91"
                 sx={{
+                  color: "gray",
                   height: "2.2rem",
                   paddingBottom: "0.15rem",
                   width: "6.8rem",
@@ -115,7 +119,7 @@ const Signup = () => {
                   required: {
                     value: true,
                     message: "Mobile Number field cannot be empty",
-                  },
+                  }, 
                 })}
               />
             </div>
@@ -152,9 +156,21 @@ const Signup = () => {
           <p className={styles.terms}>
             By, signing up, i agree to <span>terms</span>
           </p>
-          <button className={styles.otp_btn}>Register</button>
+          <button className={styles.otp_btn}>
+            {loading && (
+              <CircularProgress
+                size={28}
+                sx={{
+                  color: "white",
+                  position: "absolute",
+                  left: "6.5rem",
+                  top: "0.6rem",
+                }}
+              />
+            )}
+            Register
+          </button>
         </form>
-        <DevTool control={control} />
       </div>
     </div>
   );

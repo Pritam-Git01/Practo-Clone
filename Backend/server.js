@@ -11,7 +11,6 @@ const symptomsData = require("./Schema/Symptoms");
 const doctorsData = require("./Schema/DoctorsData");
 const consultationData = require("./Schema/ConsultData");
 const userDetails = require("./Schema/User");
-const bookingDetails = require("./Schema/Booking");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const Razorpay = require("razorpay");
@@ -28,19 +27,12 @@ mongoose
   .then(() => console.log("Connected with DB, Successful"))
   .catch((error) => console.log("Not Connected", error));
 
-//  const instance = new Razorpay({
-//     key_id: process.env.RAZORPAY_KEY_ID,
-//     key_secret: process.env.RAZORPAY_SECRET,
-//   });
 
 const OrderSchema = mongoose.Schema({
-  isPaid: Boolean,
   amount: Number,
-  razorpay: {
-    orderId: String,
-    paymentId: String,
-    signature: String,
-  },
+  orderId: String,
+  paymentId: String,
+  signature: String,
 });
 
 const Order = mongoose.model("Order", OrderSchema);
@@ -72,15 +64,15 @@ app.post("/pay-order", async (req, res) => {
     const newOrder = Order({
       isPaid: true,
       amount: amount,
-      razorpay: {
-        orderId: razorpayOrderId,
-        paymentId: razorpayPaymentId,
-        signature: razorpaySignature,
-      },
+
+      orderId: razorpayOrderId,
+      paymentId: razorpayPaymentId,
+      signature: razorpaySignature,
     });
     await newOrder.save();
     res.send({
-      msg: "Payment was successfull",
+      msg: `Your Payment of ${amount / 100} is Succesfull!!
+ we contact you shortly, Thanks!!`,
     });
   } catch (error) {
     console.log(error);
@@ -146,10 +138,10 @@ app.put("/specialist", async function (req, res) {
   console.log(data);
   return res.send(data);
 });
-app.put("/specialist", async function (req, res) {
-  let data = await specialistData.updateOne(
-    { _id: { $eq: "64be4edf29a21743ffcc4c71" } },
-    { specialist: "Gastroenterologist" }
+app.put("/symptoms", async function (req, res) {
+  let data = await symptomsData.updateOne(
+    { _id: { $eq: "64b87fa578104522cb79e997" } },
+    { price: 599 }
   );
   console.log(data);
   return res.send(data);
@@ -238,23 +230,33 @@ app.get("/users", async function (req, res) {
 app.get("/users/:id", async function (req, res) {
   try {
     const id = req.params.id;
-    let data = await userDetails.findOne({phone:id});
+    let data = await userDetails.findOne({ phone: id });
     return res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
-app.post("/booking-data", async function (req, res) {
+app.get("/users", async (req,res) => {
+  try{
+  let findPhone = await userDetails.find({phone:{$eq:req.query.phone}})
+  res.status(200).json(findPhone)
+  }catch(err){
+    res.status(500).json(err)
+  }
+})
+app.post("/booking-Data", async function (req, res) {
+  console.log(req.body);
+  console.log("hello");
   try {
     let data = await bookingData.create(req.body);
-    res.status(200).json(data);
+    console.log(data);
+    return res.status(200).json(data);
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 
-app.get("/booking-data", async function (req, res) {
+app.get("/booking-Data", async function (req, res) {
   try {
     let data = await bookingData.find();
     res.status(200).json(data);

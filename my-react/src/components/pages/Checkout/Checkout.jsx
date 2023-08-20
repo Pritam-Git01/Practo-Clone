@@ -12,22 +12,32 @@ const Checkout = () => {
 
   const [show, setShow] = useState(false);
   const [coupon, setCoupon] = useState("");
+  useEffect(() => {
+
+    const userDetails = JSON.parse(localStorage.getItem("appointDetails"));
+    if(!userDetails){
+      navigate("/")
+    }else {
+      setUserBookingData(userDetails);
+      form.reset({
+        patient: userDetails.name || ""
+      });
+    }
+    
+  }, []);
 
   const form = useForm();
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
 
-  useEffect(() => {
-    const userDetails = JSON.parse(localStorage.getItem("appointDetails"));
-    setUserBookingData(userDetails);
-  }, []);
+
   const FullNameRegex = /^[A-Za-z]+([\s.]+[A-Za-z]+)*$/;
   const tipImg =
     "https://www.practo.com/consult/bundles/cwipage/images/tip-icon-v1.png";
   const tabImg =
     "https://www.practo.com/consult/bundles/cwipage/images/phone-icon.png";
 
-  function loadRazorpay() {
+  function loadRazorpay(data) {
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
     script.onerror = () => {
@@ -45,50 +55,44 @@ const Checkout = () => {
         const { amount, id: order_id, currency } = result.data;
         const {
           data: { key: razorpayKey },
-        } = await axios.get(
-          "https://server-practo.onrender.com/get-razorpay-key"
-        );
+        } = await axios.get("https://server-practo.onrender.com/get-razorpay-key");
         const options = {
           key: razorpayKey,
           amount: amount.toString(),
           currency: currency,
-          name: "example name",
+          name: userBookingData.name?userBookingData.name:data.patient,
           description: "example transaction",
           order_id: order_id,
           handler: async function (response) {
-            const result = await axios.post(
-              "https://server-practo.onrender.com/pay-order",
-              {
-                amount: amount,
-                razorpayPaymentId: response.razorpay_payment_id,
-                razorpayOrderId: response.razorpay_order_id,
-                razorpaySignature: response.razorpay_signature,
-              }
-            );
+            const result = await axios.post("https://server-practo.onrender.com/pay-order", {
+              amount: amount,
+              razorpayPaymentId: response.razorpay_payment_id,
+              razorpayOrderId: response.razorpay_order_id,
+              razorpaySignature: response.razorpay_signature,
+            });
+           
             alert(result.data.msg);
-            const isPaid = result.status === 200 ? true : false;
-            try {
-              const postResponse = axios.post(
-                "https://server-practo.onrender.com/booking-data",
-                {
-                  isPaid,
-                  username: userBookingData.name,
-                  phone: userBookingData.phone,
-                  speciality: userBookingData.specialitist,
-                  amount: amount,
-                  razorpayPaymentId: response.razorpay_payment_id,
-                  razorpayOrderId: response.razorpay_order_id,
-                }
-              );
-              console.log(postResponse);
-            } catch (err) {
-              console.log(err);
-            }
+            
 
+            const postResponse = await axios.post(
+              "https://server-practo.onrender.com/booking-Data",
+
+              {
+                razorpayOrderId: response.razorpay_order_id,
+                patient_name: userBookingData.name? userBookingData.name:data.patient,
+                phone: userBookingData.phone,
+                amount: Number(amount/100),
+                date: {date:new Date().toLocaleDateString(), time: new Date().toLocaleTimeString()},
+                status: "Confirmed",
+                razorpayPaymentId: response.razorpay_payment_id,
+              }
+
+            );
+           
             navigate("/");
           },
           prefill: {
-            name: userBookingData.name,
+            name: userBookingData.name?userBookingData.name:data.patient,
             email: "test@example.com",
             contact: userBookingData.phone,
           },
@@ -109,7 +113,7 @@ const Checkout = () => {
     };
     document.body.appendChild(script);
   }
-
+console.log(userBookingData)
   return (
     <section className={styles.container}>
       <Header />
@@ -130,9 +134,8 @@ const Checkout = () => {
             <label htmlFor="patient">Patient's Name</label>
             <input
               type="text"
-              id="patient-name"
+              id="patient"
               spellCheck="false"
-              defaultValue={userBookingData.name ? userBookingData.name : ""}
               placeholder="Enter Patient's name"
               {...register("patient", {
                 pattern: {

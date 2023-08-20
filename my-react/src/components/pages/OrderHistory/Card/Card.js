@@ -1,17 +1,13 @@
-import React, { useState } from 'react'
-import styles from "./Card.module.css"
+import React from "react";
+import styles from "./Card.module.css";
 
-const Card = ({data}) => {
-    const[style,setStyle] = useState()
-    console.log(data)
-    const handleStyle = (e) => {
-      setStyle(e)
-    }
+const Card = ({ data, styling, handle }) => {
+ 
   return (
-    <div  className={styles.wraper}>
-        <p onClick={() => handleStyle(data.id)} className={`${style === data.id?styles.textClicked:styles.text}`}>{data.text}</p>
-    </div>
-  )
-}
+    <p onClick={() => handle(data.id)} className={`${styling === data.id?styles.textClicked:styles.text}`}>
+      {data.text}
+    </p>
+  );
+};
 
 export default Card;
