@@ -89,7 +89,7 @@ function Navbar({ style, logoStyle, iconStyle, handle }) {
                 color="inherit"
               >
                 <p className={styles.userName}>
-                  {userData.name ? userData.name : null}
+                  {userData.name ? userData.name : ""}
                 </p>
                 <span className={styles.icon}>
                   <RiArrowDropDownLine />
