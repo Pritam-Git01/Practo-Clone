@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./signup.module.css";
 import { useForm } from "react-hook-form";
-
+import {toast} from "react-toastify";
 import axios from "axios";
 import { Select } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -33,10 +33,10 @@ const Signup = () => {
         signupDetails
       );
       if (response.data.status === 404) {
-        alert("Mobile number is already registered!!");
+        toast.error("Mobile number is already registered!!");
         setLoading(false);
       } else {
-        alert("Thank You, Registration Successfull!!");
+        toast.success("Thank You, Registration Successfull!!");
         localStorage.setItem("regPhone", JSON.stringify(data.mobile));
         localStorage.setItem("userAuth", true);
         dispatch(showingIcon(true));

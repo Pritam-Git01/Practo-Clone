@@ -1,18 +1,36 @@
 .wraper {
-    margin: 2rem 10rem 2rem 10rem;
-    overflow-x: hidden;
+  margin: 2rem 9.9rem 2rem 9.9rem;
+  width: 80vw;
+  overflow: hidden;
+  position: relative;
 }
-
 
 .container {
-    height: 51.9vh;
-    width: 80vw;
-    display: flex;
-    gap: 1.5rem;
-    overflow: scroll;
-   border-bottom: 1px solid rgb(204, 200, 200);
+  height: 50vh;
+  width: 100%;
+  display: flex;
 
+  position: relative;
+  border-bottom: 1px solid rgb(204, 200, 200);
 }
-.container::-webkit-scrollbar {
-    display: none;
+.container > button {
+  height: 2.6rem;
+  width: 2.6rem;
+  border: none;
+  color: rgb(120, 120, 135);
+  padding-top: 0.6rem;
+  background-color: rgb(248, 246, 246);
+  border-radius: 50%;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.left {
+  position: absolute;
+  top: 6rem;
+  left: 0;
+}
+.right {
+  position: absolute;
+  right: 0rem;
+  top: 6rem;
+  z-index: auto;
 }

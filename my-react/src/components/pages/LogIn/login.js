@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { showingIcon } from "../../Redux/Feature/PractoSlice";
 import { useDispatch } from "react-redux";
+import {toast} from "react-toastify";
 
 const LogIn = () => {
   const dispatch  = useDispatch()
@@ -37,12 +38,12 @@ const LogIn = () => {
     // }
     if(response.data === null){
     
-      alert("You are not registerd with us, Please Register!!")
+      toast.warn("You are not registerd with us, Please Register!!")
       setLoading(false)
 
     } else if (response.data.password === data.password){
       
-      alert("You are logged In, Successfully");
+      toast.success("You are logged In, Successfully");
       setLoading(false)
     
         localStorage.setItem("regPhone", JSON.stringify(data.mobile))

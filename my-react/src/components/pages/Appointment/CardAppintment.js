@@ -5,6 +5,7 @@ import Header from "./Header";
 import { useForm } from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import {toast} from "react-toastify"
 
 const Appointment2 = () => {
   const[doctorsData,setDoctorsData] = useState("")
@@ -120,8 +121,18 @@ useEffect(() => {
               message: "Mobile Number field cannot be empty",
             },
             validate: async (value) => {
-              const {data} = await axios.get(`https://server-practo.onrender.com/users/${value}`)
-              return data || "You are not registerd with us, please Registered First!!"
+              try {
+                const { data } = await axios.get(`https://server-practo.onrender.com/users/${value}`);
+                if (!data) {
+                  toast.error("You are not registered with us, please register first!!");
+                  return "You are not registered with us, please register first!!";
+                }
+              } catch (error) {
+               
+                toast.error("An error occurred while checking registration. Please try again.");
+                return "An error occurred. Please try again later.";
+              }
+             
             }
           })}
         />

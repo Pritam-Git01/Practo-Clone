@@ -59,7 +59,7 @@ const cunsulting = (e) => {
     <div className={styles.wraper}>
       <Text text={text} style={style}  navigating={handleNavigate}/>
       <div className={styles.cards}>
-        {loading ? <Loader /> : specialist.map((item) => <Cards handle={cunsulting} key={item.id} data={item} />)}
+        {loading ? <Loader /> : specialist.map((item) => <Cards handle={cunsulting} key={item._id} data={item} />)}
       </div>
     </div>
   );

@@ -3,17 +3,13 @@ import styles from "./Card.module.css";
 // import {AiOutlineLeft} from "react-icons/ai";
 // import {AiOutlineRight} from "react-icons/ai";
 
-const Card = ({data}) => {
+const Card = ({data, slideStyle}) => {
   return (
-    <div  className={styles.card_container}>
-      {/* <AiOutlineLeft className={styles.left}/> */}
+    <div  style={slideStyle} className={styles.card_container}>
       <p>
         {data.text}
       </p>
-      {/* <AiOutlineRight className={styles.right}/> */}
-      <span className={styles.indicators}>
-        <button key={data._id}></button>
-      </span>
+
     </div>
   );
 };

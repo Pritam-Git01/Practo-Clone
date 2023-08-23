@@ -8,12 +8,37 @@
 }
 .cards {
     width: 80vw;
-    height: 51.9vh;
+    height: 46vh;
     display: "flex";
     gap: 1.2rem;
     overflow: scroll;
     display: flex;
+    position: relative;
 }
+.cards > button {
+    height: 2.6rem;
+    width: 2.6rem;
+    border: none;
+    font-size: 1.3rem;
+    color: rgb(120, 120, 135);
+    padding-top: 0.6rem;
+    background-color: rgb(248, 246, 246);
+    border-radius: 50%;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  }
+  .left {
+    position: absolute;
+    top: 8.2rem;
+    left: 0;
+  }
+  .right {
+    position: absolute;
+    right: 0rem;
+    top: 8.2rem;
+    
+    z-index: auto;
+  }
+  
 .cards::-webkit-scrollbar {
     display: none;
 }

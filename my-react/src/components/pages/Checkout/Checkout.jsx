@@ -4,6 +4,7 @@ import styles from "./Checkout.module.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import {toast} from "react-toastify";
 import Loader from "../../atoms/Loader/Loader";
 const Checkout = () => {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ const Checkout = () => {
               razorpaySignature: response.razorpay_signature,
             });
            
-            alert(result.data.msg);
+            toast.success(result.data.msg);
             
 
             const postResponse = await axios.post(
