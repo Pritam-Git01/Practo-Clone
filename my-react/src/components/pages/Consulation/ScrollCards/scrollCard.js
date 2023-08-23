@@ -1,6 +1,6 @@
 import React from "react";
 import Text from "../../../atoms/ScrollText/Text";
-
+import { AiOutlineLeft,AiOutlineRight } from "react-icons/ai";
 import styles from "./scrollCard.module.css";
 import Cards from "./Card";
 import Loader from "../../../atoms/Loader/Loader";
@@ -13,6 +13,7 @@ const ScrollCards = () => {
   const [symptomsData, setSymptomsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const[currentIndex,setCurrentIndex] = useState(0)
   const navigate = useNavigate()
 
   const text = {
@@ -38,6 +39,7 @@ const ScrollCards = () => {
     fetchData();
   }, []);
 
+
   function handleClick(){
     navigate("/consulting")
   }
@@ -56,7 +58,17 @@ const handleConsulting = async (e) => {
   navigate("/consulting-2")
 }
 
+const prevSlide = () => {
+  setCurrentIndex((prev) => (prev - 1 + symptomsData.length) % symptomsData.length)
+}
 
+const nextSlide  = () => {
+  setCurrentIndex((prev) => (prev + 1) % symptomsData.length)
+}
+
+const slide = {
+  transform: `translateX(-${currentIndex * 105}%)`
+}
 
   if (error) return <Error message="Error while fetching Symptoms Data" />;
   return (
@@ -66,8 +78,22 @@ const handleConsulting = async (e) => {
         {loading ? (
           <Loader />
         ) : (
-          symptomsData.map((item) => <Cards handle={handleConsulting} key={item.id} data={item} />)
+          symptomsData.map((item) => <Cards slideStyle={slide} handle={handleConsulting} key={item._id} data={item} />)
         )}
+          <button
+        style={{ display: `${currentIndex === 0 ? "none" : "block"}` }}
+        onClick={prevSlide}
+        className={styles.left}
+      >
+        <AiOutlineLeft />
+      </button>
+      <button
+        style={{ display: `${currentIndex === 3 ? "none" : "block"}` }}
+        onClick={nextSlide}
+        className={styles.right}
+      >
+        <AiOutlineRight />
+      </button>
       </div>
     </div>
   );

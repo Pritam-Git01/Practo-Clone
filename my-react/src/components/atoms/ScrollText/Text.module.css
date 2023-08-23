@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Pacifico&family=Slabo+27px&family=Source+Serif+4:opsz@8..60&display=swap');
 .container {
     display: flex;
     justify-content: space-between;
+}
+.text_wraper {
+    color: rgb(65,65,70);
+}
+.text_wraper > h2 {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: Lato;
+    word-spacing: normal;
+    letter-spacing: 0.6px;
 }
 .spcl_btn {
     font-size: 14px;

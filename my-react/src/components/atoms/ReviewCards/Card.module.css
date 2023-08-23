@@ -8,7 +8,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-.card_container p {
+.card_container {
+    width: 80vw;
+}
+.card_container > p {
     width: 80vw;
     height: 32vh;
     font-size: 26px;

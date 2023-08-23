@@ -1,18 +1,16 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-    showUserIcon:false
-}
+  showUserIcon: false,
+};
 const practoSlice = createSlice({
-    name: "practo",
-    initialState,
-    reducers:{
-        showingIcon:(state,action) => {
-            state.showUserIcon = action.payload
-        }
+  name: "practo",
+  initialState,
+  reducers: {
+    showingIcon: (state, action) => {
+      state.showUserIcon = action.payload;
+    },
+  },
+});
 
-    }
-
-})
-
-export const {showingIcon} = practoSlice.actions
+export const { showingIcon } = practoSlice.actions;
 export default practoSlice.reducer;

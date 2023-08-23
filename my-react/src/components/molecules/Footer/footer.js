@@ -1,9 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from "./footer.module.css";
 
 
 const Footer = () => {
-    
+    const navigate = useNavigate();
   return (
     <div className={styles.wraper}>
     <div className={styles.footer_container}>
@@ -68,9 +69,10 @@ const Footer = () => {
     </div>
     
     
-    <div className={styles.logo_container}>
-            <img src='https://www.practostatic.com/web-assets/images/white_practo_logo.svg' alt="logo"/>
-            <p style={{color: "gray"}}>Copyright @ 2023 Practo, All rights Reserved</p>
+    <div  className={styles.logo_container}>
+            <img 
+            src='https://www.practostatic.com/web-assets/images/white_practo_logo.svg' alt="logo"/>
+            <p style={{color: "white", paddingTop:"2rem"}}>Copyright @ 2023 Practo, All rights Reserved</p>
         </div>
     </div>
   )

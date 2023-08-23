@@ -11,6 +11,10 @@ import { ImUser } from "react-icons/im";
 import axios from "axios";
 
 function Navbar({ style, logoStyle, iconStyle, handle }) {
+  const MenuStyle = {
+    paddingTop:"1rem",
+    fontWeight:450
+  }
   const dispatch = useDispatch();
   const showIcon = useSelector((state) => state.userIcon);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -89,7 +93,7 @@ function Navbar({ style, logoStyle, iconStyle, handle }) {
                 color="inherit"
               >
                 <p className={styles.userName}>
-                  {userData.name ? userData.name : null}
+                  {userData.name ? userData.name : ""}
                 </p>
                 <span className={styles.icon}>
                   <RiArrowDropDownLine />
@@ -114,12 +118,13 @@ function Navbar({ style, logoStyle, iconStyle, handle }) {
                   />
 
                   <div style={{ padding: "0.1rem 1.2rem", fontSize: "12px" }}>
-                    <p>{userData.name ? userData.name : null}</p>
-                    <p>{userData.phone ? userData.phone : null}</p>
+                    <p>{userData.name ? userData.name : ""}</p>
+                    <p>{userData.phone ? userData.phone : ""}</p>
                   </div>
                 </MenuItem>
 
-                <MenuItem onClick={() => navigate("/order-history/appointments")}>
+                <MenuItem style={MenuStyle}
+                onClick={() => navigate("/order-history/appointments")}>
                   My Appointments
                 </MenuItem>
                 <MenuItem onClick={() => navigate("/order-history/tests")}>
