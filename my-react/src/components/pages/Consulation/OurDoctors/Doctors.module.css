@@ -2,6 +2,7 @@
   margin: 0rem 10rem 2rem 10rem;
   height: 11.8vh;
   width: 80vw;
+  overflow: hidden;
   display: flex;
   position: relative;
 }

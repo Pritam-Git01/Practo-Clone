@@ -24,6 +24,9 @@ const ScrollCards = () => {
   const style = {
     display: "none",
   };
+  const style2 = {
+    color:"rgb(65,65,70)"
+  }
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % appointData.length);
   };
@@ -57,7 +60,7 @@ const ScrollCards = () => {
     return <Error message={"Error while fetching clinic appointment Data"} />;
   return (
     <div className={styles.wraper}>
-      <Text text={text} style={style} />
+      <Text text={text} styling={style2} style={style} />
       
       <div className={styles.container}>
      

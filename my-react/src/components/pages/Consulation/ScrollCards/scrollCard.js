@@ -67,7 +67,7 @@ const nextSlide  = () => {
 }
 
 const slide = {
-  transform: `translateX(-${currentIndex * 105}%)`
+  transform: `translateX(-${currentIndex * 108}%)`
 }
 
   if (error) return <Error message="Error while fetching Symptoms Data" />;

@@ -16,12 +16,14 @@ const Banner = () => {
     width:"18vw",
     backgroundColor:"rgb(19, 157, 216)",
     height: "3.1rem",
-   
     color: "white",
     fontSize: "1.14rem",
     fontWeight: 550,
     border: "none",
     borderRadius: "0.5rem"
+  }
+  const style2  = {
+    color:"white"
   }
 
 const handleNavigate = () => {
@@ -30,7 +32,7 @@ const handleNavigate = () => {
 }
   return (
     <div className={styles.wraper}>
-        <Text text={text} style={style} navigating={handleNavigate}/>
+        <Text text={text} styling={style2} style={style} navigating={handleNavigate}/>
 
 
     </div>

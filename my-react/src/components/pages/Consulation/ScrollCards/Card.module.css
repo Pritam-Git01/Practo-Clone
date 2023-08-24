@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 .wraper { 
-    height: 44vh;
-    width: 19vw;
+    height: 40.8vh;
+    width: 18.2vw;
     cursor: pointer;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     transition: all 0.3s ease-in-out;
@@ -13,7 +13,7 @@
 .wraper img {
     border-radius: 0.4rem;
     height: 26vh;
-    width: 18.9vw;
+    width: 18.2vw;
 }
 
 .wraper p {
@@ -32,6 +32,7 @@
     background: none;
     color: #14bef0;
     width: 9.1vw;
+    margin-top: -0.2rem;
     margin-left: 1rem;
   }
   .icon {

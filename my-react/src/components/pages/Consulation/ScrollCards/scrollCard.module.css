@@ -9,9 +9,8 @@
 .cards {
     width: 80vw;
     height: 46vh;
-    display: "flex";
-    gap: 1.2rem;
-    overflow: scroll;
+    gap: 1.8rem;
+    overflow: hidden;
     display: flex;
     position: relative;
 }

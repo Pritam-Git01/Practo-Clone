@@ -23,6 +23,9 @@ const Scrollbar = () => {
       "Private online consultations with verified doctors in all specialists",
 
   };
+  const styling = {
+    color: "rgb(65,65,70)"
+  }
   useEffect(() => {
     const concernData = async () => {
       try {
@@ -55,7 +58,7 @@ const consulting = async (e) => {
 
   return (
     < div className={styles.container}>
-      <Text text={text} navigating={handleClick}/>
+      <Text styling={styling} text={text} navigating={handleClick}/>
       <div  className={styles.scroll_container}>
      {loading? (<Loader/>):(
       concernData.map((item) => <Cards handle={consulting} key={item._id} data={item}/>)

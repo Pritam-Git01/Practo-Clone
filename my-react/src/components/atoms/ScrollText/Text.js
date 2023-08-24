@@ -13,12 +13,12 @@ const Text = ({ text, style, navigating }) => {
   // }
   
   
-  const { text_1, text_2, text_3} = text;
+  const { text_1, text_2,styling, text_3} = text;
 
   return (
     <div className={styles.container}>
-      <div className={styles.text_wraper}>
-        <h2>{text_1}</h2>
+      <div  style={styling} className={styles.text_wraper}>
+        <h2 >{text_1}</h2>
         <p>{text_2}</p>
       </div>
       <div className={styles.btn}>

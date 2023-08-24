@@ -3,9 +3,7 @@
     display: flex;
     justify-content: space-between;
 }
-.text_wraper {
-    color: rgb(65,65,70);
-}
+
 .text_wraper > h2 {
     font-size: 24px;
     font-weight: 600;
