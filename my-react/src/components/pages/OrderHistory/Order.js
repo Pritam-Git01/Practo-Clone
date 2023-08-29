@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 import styles from "./Order.module.css";
 import Card from "../OrderHistory/Card/Card";
-import { ImUser } from "react-icons/im";
+import { ImUser,ImMobile2 } from "react-icons/im";
 import axios from "axios";
 import { useNavigate, Link, Outlet } from "react-router-dom";
 import Navbar from "../../molecules/Navbar/navbar";
@@ -100,7 +100,18 @@ useEffect(() => {
 
   return (
     <div className={styles.wraper}>
-      <nav className={styles.nav}>A</nav>
+      <nav className={styles.nav}>
+        <div>
+          <span><ImMobile2/></span>
+          <p>Download the App</p>
+        </div>
+        <ul>
+          <p onClick={() => navigate("/")}>Book Appointments</p>
+          <p onClick={() => navigate("/consultation")}>Chat with a doctor</p>
+          <p>Order medicines</p>
+          <p>Book tests</p>
+        </ul>
+      </nav>
       <header className={styles.header}>
         <Navbar
         handle={handleLogout2}

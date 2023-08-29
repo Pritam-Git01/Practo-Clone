@@ -9,18 +9,53 @@
     background-color: rgb(240, 240, 245);
 }
 .nav{
-    height: 5%;
-    border: 1px solid blue;
-    background: #fff;
+    height: 6.8%;
+    width: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(210, 210, 220);
+}
+.nav > div {
+    display: flex;
+    padding-left: 5rem;
+}
+.nav > div > span {
+    color: rgb(210, 210, 210);
+    font-size: 1.5rem;
+}
+.nav > div > p{
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    padding-left: 0.5rem;
+    padding-top: 0.3rem;
+    color: rgb(98, 98, 98,0.9);
+    cursor: pointer;
+}
+.nav > ul {
+    display: flex;
+    text-decoration: none;
+    gap: 2rem;
+    padding-right: 5rem;
+}
+.nav > ul > p{
+    text-decoration: none;
+    font-size: 12px;
+    color: rgb(65, 65, 70);
+}
+.nav > ul > p :hover{
+    color: rgb(40, 50, 140);
 }
 .header{
     height: 8%;
-    border: 1px solid cyan;
     background: #fff;
+    border-bottom: 1px solid rgb(210, 210, 220);
 }
 .orders{
     height: 80%;
-   margin: 1.9rem 2.2rem;
+    margin: 1.9rem 2.2rem;
     background: #fff;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 
